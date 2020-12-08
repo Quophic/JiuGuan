@@ -1,5 +1,5 @@
 <template>
-  <h1>这是登陆界面</h1>
+  <p>这是注册页面</p>
 </template>
 
 <script>
