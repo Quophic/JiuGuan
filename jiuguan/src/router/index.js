@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Start from '../views/Start.vue'
 import Register from '../views/Register.vue'
-
+import Community from '../views/Community.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -22,6 +22,11 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: Register
+  },
+  {
+    path: '/community',
+    name: 'Community',
+    component: Community
   }
 ]
 
