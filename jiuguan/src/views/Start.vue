@@ -5,10 +5,26 @@
     </div>
     <div class="button">
       <a href="/login">
-        <v-btn depressed large id="loginButton" class="brown--text">登陆</v-btn>
+        <v-btn
+          depressed
+          large
+          id="loginButton"
+          class="brown--text"
+          height="28px"
+          width="95px"
+          >登陆</v-btn
+        >
       </a>
       <a href="/Register">
-        <v-btn depressed large id="regButton" class="brown--text">注册</v-btn>
+        <v-btn
+          depressed
+          large
+          id="regButton"
+          class="brown--text"
+          height="28px"
+          width="95px"
+          >注册</v-btn
+        >
       </a>
     </div>
   </div>
@@ -18,7 +34,7 @@
 export default {
   data() {
     return {
-      startSrc: require("/Users/sairen/vuelearn/JiuGuan/jiuguan/src/images/startImg.png")
+      startSrc: require("../images/startImg.png")
     };
   }
 };
