@@ -5,7 +5,8 @@
       </div>
       <div class="button">
           <a href="/login">
-             <v-btn depressed small color="primary">Primary</v-btn>
+             <v-btn depressed large id="loginButton" class="brown--text">登陆</v-btn>
+             <v-btn depressed large id="regButton" class="brown--text">注册</v-btn>
           </a>
       </div>
   </div>
@@ -27,6 +28,20 @@ export default {
     height: 30px;
 }
 
+#loginButton {
+    opacity: 0.6;
+    position: fixed;
+    top: 393px;
+    left: 25px;
+}
+
+#regButton {
+    opacity: 0.6;
+    position: fixed;
+    top: 454px;
+    left: 25px;
+}
+
 .background {
     background-size: 100% 100%;
     height: 100%;
@@ -35,6 +50,5 @@ export default {
     left: 0;
     background-position: center;
     position: fixed;
-    z-index: -1;
 }
 </style>
