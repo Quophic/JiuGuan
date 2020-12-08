@@ -34,9 +34,9 @@
 export default {
   data() {
     return {
-      startSrc: require("../images/startImg.png")
+      startSrc: require("../images/startImg.png"),
     };
-  }
+  },
 };
 </script>
 
