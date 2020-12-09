@@ -11,9 +11,9 @@
       :key="index"
     >
      <v-card-title >
-       <div class="userHead">
-         <v-img max-height="100%" src="../assets/logo.png"></v-img>
-        </div>
+      <v-avatar>
+        <v-img max-height="100%" src="../assets/logo.png"></v-img>
+      </v-avatar>
        <span class="id">{{item.ID}}</span>
      </v-card-title>
      <v-card-text>
@@ -47,10 +47,11 @@
      </v-card-actions>
       
     </v-card>
-       <v-btn center text @click="test">点击刷新</v-btn>
-    </div >
-      <v-btn
-       
+    
+       <v-btn  text @click="test">点击刷新</v-btn>
+    </div>
+    <a href="/community/addContent">
+    <v-btn
       color="red"
       height="70px"
       width="70px"
@@ -63,7 +64,7 @@
       size="50px"
       >mdi-plus</v-icon>
       </v-btn>
-    
+    </a>
     
   </div>
 </template>
@@ -95,15 +96,12 @@ export default {
 </script>
 
 <style  scoped>
-.userHead{
-  height:30px;
-  width:30px;
-  border-radius: 100%;
-  overflow: hidden;
-  margin-right:6%;
-}
+
 .contentPlace{
   margin:30px 10px;
+}
+.id{
+  margin-left:30px;
 }
 
 

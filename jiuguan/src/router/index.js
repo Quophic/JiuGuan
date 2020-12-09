@@ -6,6 +6,7 @@ import Start from '../views/Start.vue'
 import Register from '../views/Register.vue'
 import Community from '../views/Community.vue'
 import LoginWelcome from '../views/LoginWelcome.vue'
+import AddContent from '../views/AddContent.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -33,6 +34,11 @@ const routes = [
     path: '/loginWelcome',
     name: 'LoginWelcome',
     component: LoginWelcome
+  },
+  {
+    path:'/community/addContent',
+    name:'AddContent',
+    component:AddContent
   }
 ]
 
