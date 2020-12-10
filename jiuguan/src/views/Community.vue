@@ -11,7 +11,7 @@
       <v-avatar>
         <v-img max-height="100%" src="../assets/logo.png"></v-img>
       </v-avatar>
-       <span class="id">{{item.ID}}</span>
+       <span class="id">{{item.FromName}}</span>
      </v-card-title>
      <v-card-text>
        {{item.Content}}
@@ -38,7 +38,7 @@
         elevation="0"
        >
          <v-icon color="grey" >mdi-message-processing-outline</v-icon>
-        <!-- <span class="num">评论数</span>  -->
+        <span class="num" v-show="item.ReplyNum">{{item.ReplyNum}}</span> 
        </v-btn>
       </v-row>
      </v-card-actions>
@@ -70,19 +70,21 @@
 export default {
     data(){
       return{
-        contents:[]
+        contents:[],
+        pageNum:1
       }
     },
     methods:{
       //  请求comment测试
         test(){
-            this.$axios.get('/getcommentbytime').then(response => {
+          //当contents被清空时，pageNum要赋值为1
+            this.$axios.get('/getcommentbytime?PageSize=10&PageNum='+this.pageNum++).then(response => {
                     if (response.data) {
                         console.log(response.data.date)
                         this.contents.push(...response.data.date)
                     }
                 }).catch(err => {
-                    console.log(err)                    
+                    console.log(err)
                 })
 
         },

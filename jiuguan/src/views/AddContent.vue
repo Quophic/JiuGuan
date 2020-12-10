@@ -1,6 +1,6 @@
 <template>
     <div>
-       <h1>这是添加content的页面</h1> 
+       
        <div class="justify">
             <v-btn
                 text
@@ -23,7 +23,7 @@
                 auto-grow
                 background-color="white"
                 outlined
-                counter="200"
+                counter
                 :placeholder="placeHolder"
                 >
                 </v-textarea>
@@ -34,10 +34,8 @@
            
        
        <v-app-bar
-       absolute
-       bottom
-        right
        :class="'rounded-t-xl'"
+       class="bottomBar"
       
        >
         <v-btn
@@ -68,8 +66,12 @@ export default {
         sendContent(){
               if (this.newContent.match(/[\S]/) != null){
                    console.log(this.newContent)
+                    this.$axios.get('/upcomment?Content='+this.newContent+'&FromId=0'+'&FromName=lsp').then(response =>{
+                        console.log(response.data)
+                    })
+
                     this.newContent = ""
-                     this.placeHolder = "说点什么吧？"
+                    this.placeHolder = "说点什么吧？"
               }
               else{
                   this.placeHolder = "禁止输入为空"
@@ -84,6 +86,7 @@ export default {
 .justify{
     position: relative;
     top:50px;
+    height: 100%;
 }
 .input{
     position:absolute;
@@ -111,7 +114,10 @@ export default {
     bottom:50%;
     left:15%;
     width:70%;
-    
+}
+.bottomBar{
+    position:fixed;
+    bottom:0;
 }
 
 </style>
