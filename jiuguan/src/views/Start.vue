@@ -9,10 +9,9 @@
           depressed
           large
           id="loginButton"
-          class="brown--text"
           height="28px"
-          width="95px"
-          >登陆</v-btn
+          width="125px"
+          >登录</v-btn
         >
       </a>
       <a href="/Register">
@@ -22,7 +21,7 @@
           id="regButton"
           class="brown--text"
           height="28px"
-          width="95px"
+          width="125px"
           >注册</v-btn
         >
       </a>
@@ -34,7 +33,7 @@
 export default {
   data() {
     return {
-      startSrc: require("../images/startImg.png"),
+      startSrc: require("../images/start.png"),
     };
   },
 };
@@ -58,15 +57,20 @@ export default {
 
 #loginButton {
   position: fixed;
-  top: 393px;
-  left: 25px;
-  opacity: 0.6;
+  top: 145px;
+  left: 125px;
+  background-color: #E2806A;
 }
 
 #regButton {
   position: fixed;
-  top: 454px;
-  left: 25px;
-  opacity: 0.6;
+  top: 207px;
+  left: 125px;
+  background-color: #E2806A;
 }
+
+.v-btn__content {
+  color: #FBE9E7;
+}
+
 </style>

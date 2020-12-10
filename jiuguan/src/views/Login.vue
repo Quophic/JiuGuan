@@ -49,7 +49,7 @@ export default {
         // })
         this.$axios ({
           method: 'post',
-          url: 'http://localhost:8000/products',  //接口地址的url
+          url: 'http://121.196.45.183:8080',  //接口地址的url
           data: that.loginForm,
         }).then(res => {
           console.log(res),
