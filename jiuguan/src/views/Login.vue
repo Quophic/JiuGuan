@@ -57,7 +57,7 @@ export default {
           that.userToken = 'Bearer ' + res.data.data.body.token;
           //将用户的token存入vuex中
           that.changeLogin({ Authorization: that.userToken })
-          that.$router.push('/loginWelcome');  //成功之后跳转到登录成功后的界面
+          that.$router.push('/loading');  //成功之后跳转到登录成功后的界面
           alert('登录成功');
         }).catch(error => {
           alert('账号或密码错误');
