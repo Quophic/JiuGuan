@@ -24,10 +24,9 @@
                 background-color="white"
                 outlined
                 counter="200"
-                placeholder="说点什么？"
+                :placeholder="placeHolder"
                 >
                 </v-textarea>
-                {{newContent}}
            </div>   
            </div>
              <div class="topicPlace">
@@ -62,12 +61,20 @@ export default {
     data(){
         return{
             newContent:"",
+            placeHolder:""
         }
     },
     methods:{
         sendContent(){
-            console.log(this.newContent)
-            this.newContent = ""
+              if (this.newContent.match(/[\S]/) != null){
+                   console.log(this.newContent)
+                    this.newContent = ""
+                     this.placeHolder = "说点什么吧？"
+              }
+              else{
+                  this.placeHolder = "禁止输入为空"
+              }
+           
         }
     }
 }
