@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div>
-    <h1>这是社区</h1>
-    </div>
     
     <div style=" margin:30px 10px;">
       <v-card
@@ -85,10 +82,8 @@ export default {
                         this.contents.push(...response.data.date)
                     }
                 }).catch(err => {
-                    console.log(err)
+                    console.log(err)                    
                 })
-        },
-        addNewContent(){
 
         },
     }
