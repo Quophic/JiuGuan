@@ -34,22 +34,24 @@ export default {
 
   methods: {
     ...mapMutations(['changeLogin']),
+
     login () {
       let that = this;
       if (this.loginForm.username === '' || this.loginForm.password === '') {
         alert('账号和密码不能为空');
       } else {
-        console.log("登录成功")
-        this.axios ({
+        // console.log("确实不为空")
+        this.$axios ({
           method: 'post',
-          url: '/user/login',
+          url: 'http://localhost:8000/goods',
           data: that.loginForm,
         }).then(res => {
-          console.log(res.data),
+          console.log(res),
+          // console.log(res.data),
           that.userToken = 'Bearer ' + res.data.data.body.token;
           //将用户的token存入vuex中
           that.changeLogin({ Authorization: that.userToken })
-          that.$router.push('/loginWelcome');  //成功之后跳转到主界面
+          that.$router.push('/loginWelcome');  //成功之后跳转到登录成功后的界面
           alert('登录成功');
         }).catch(error => {
           alert('账号或密码错误');
