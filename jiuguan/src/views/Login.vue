@@ -11,9 +11,7 @@
       <v-text-field outlined clearable type="password" prepend-inner-icon="lock" label="password" v-model="loginForm.password"></v-text-field>
     </div>
     <div class="logbutton">
-      <a href="/loginWelcome">
-        <v-btn id="loginBtn" depressed large height="28px" width="95px">登录</v-btn>
-      </a>
+        <v-btn id="loginBtn" depressed large height="28px" width="95px" @click="login">登录</v-btn>
       <a href="/register">
         <v-btn id="regBtn" depressed large height="28px" width="95px">注册</v-btn>
       </a>  
@@ -41,6 +39,7 @@ export default {
       if (this.loginForm.username === '' || this.loginForm.password === '') {
         alert('账号和密码不能为空');
       } else {
+        console.log("登录成功")
         this.axios ({
           method: 'post',
           url: '/user/login',
@@ -50,7 +49,7 @@ export default {
           that.userToken = 'Bearer ' + res.data.data.body.token;
           //将用户的token存入vuex中
           that.changeLogin({ Authorization: that.userToken })
-          that.$router.push('/push');  //成功之后跳转到主界面
+          that.$router.push('/loginWelcome');  //成功之后跳转到主界面
           alert('登录成功');
         }).catch(error => {
           alert('账号或密码错误');
