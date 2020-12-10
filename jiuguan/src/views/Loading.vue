@@ -1,12 +1,16 @@
 <template>
-  <p>{{ percent }}</p>
+<div>
+    <h1>nmsl</h1>
+    <p>{{ percent }}</p>
+</div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      count: 0
+      count: 0,
+      percent: ''
     };
   },
 
@@ -51,7 +55,7 @@ export default {
 
   watch: {
     count: function(val) {
-      // console.log(val)
+      console.log(val)
       if (val === 18) {
         // 图片加载完成后跳转页面
         this.$router.push({ path: "cover" });
