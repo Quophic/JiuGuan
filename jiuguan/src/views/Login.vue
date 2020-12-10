@@ -11,9 +11,7 @@
       <v-text-field outlined clearable type="password" prepend-inner-icon="lock" label="password" v-model="loginForm.password"></v-text-field>
     </div>
     <div class="logbutton">
-      <a href="/loginWelcome">
-        <v-btn id="loginBtn" depressed large height="28px" width="95px">登录</v-btn>
-      </a>
+        <v-btn id="loginBtn" depressed large height="28px" width="95px" @click="login">登录</v-btn>
       <a href="/register">
         <v-btn id="regBtn" depressed large height="28px" width="95px">注册</v-btn>
       </a>  
@@ -36,26 +34,35 @@ export default {
 
   methods: {
     ...mapMutations(['changeLogin']),
+
     login () {
       let that = this;
       if (this.loginForm.username === '' || this.loginForm.password === '') {
         alert('账号和密码不能为空');
       } else {
-        this.axios ({
-          method: 'post',
-          url: '/user/login',
-          data: that.loginForm,
-        }).then(res => {
-          console.log(res.data),
-          that.userToken = 'Bearer ' + res.data.data.body.token;
-          //将用户的token存入vuex中
-          that.changeLogin({ Authorization: that.userToken })
-          that.$router.push('/push');  //成功之后跳转到主界面
-          alert('登录成功');
-        }).catch(error => {
-          alert('账号或密码错误');
-          console.log(error);
-        });
+        // console.log("确实不为空")
+        //下面对是否跨域成功进行测试
+        this.$axios.get("http://localhost:8000/products") //这个get的是对应数据存放的api
+        .then(function(res){
+          console.log("正常运行")
+          console.log(res)
+        })
+        // this.$axios ({
+        //   method: 'post',
+        //   url: 'http://localhost:8000/products',
+        //   data: that.loginForm,
+        // }).then(res => {
+        //   console.log(res),
+        //   // console.log(res.data),
+        //   that.userToken = 'Bearer ' + res.data.data.body.token;
+        //   //将用户的token存入vuex中
+        //   that.changeLogin({ Authorization: that.userToken })
+        //   that.$router.push('/loginWelcome');  //成功之后跳转到登录成功后的界面
+        //   alert('登录成功');
+        // }).catch(error => {
+        //   alert('账号或密码错误');
+        //   console.log(error);
+        // });
       }
     }
   }

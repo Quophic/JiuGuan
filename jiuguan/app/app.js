@@ -1,22 +1,55 @@
 // const express = require('express');
+// const expressStatic = require('express-static');
  
 // var server = express();
-// server.use('/1.html', function (req, res) {  //请求路径为  http://localhost:8080/1.html
-//     //res.write('aaa');  //向前台写入aaa
-//     //res.send('aaa');  //向前台写入aaa
-//     res.send({ a: 12, b: 5 });   //向前台写入json数据
-//     res.end();
+// server.listen(3000); 
+
+// var users ={
+//     'huangchenruo' : '123456',
+//     'ouyangwenlin' : '123456',
+//     'zhanhaobin' : '123456,'
+// };
+
+// server.get('/login', function (req, res) {  //请求路径为  http://localhost:8080/1.html
+//     var users = req.query['loginForm']
+//     console.log(req.query)
 // })
- 
-// server.listen(8080); 
 
-const express = require('express')
-const app = express()
-const port = 3000
+var express = require('express')
+var cors = require('cors')
+var app = express();
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.use(cors());
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+var corsOptions = {
+    origin: 'http://localhost:8080', //只有从localhost:8080来的才不会被拦截
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
 
+app.get('/products', cors(corsOptions), function (req, res, next) {
+    res.json({msg: 'This is CORS-enabled for only example.com.'})
+  })
+   
+app.listen(8000, function () {
+    console.log('CORS-enabled web server listening on port 8000')
+  })
+// app.options('*', cors()); // preflight OPTIONS; put before other routes
 
-//3000是express挂载的服务器，如果要从3000请求数据得解决和8080的跨域问题
+// var server = app.listen(8000, 'localhost', function () {
+//   console.log('服务器已经启动，地址是http://localhost:8000')
+// })
+
+// app.get('/', function (req, res) {
+//   res.send('这里是首页')
+// })
+// app.get('/goods', function (req, res) {
+//   res.json(data) // 返回json
+// })
+// var data = {
+//   code: 200,
+//   msg: 'ok',
+//   data: {
+//     a: 1,
+//     b: 2,
+//   }
+// }
