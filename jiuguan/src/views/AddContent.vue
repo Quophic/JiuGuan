@@ -34,10 +34,8 @@
            
        
        <v-app-bar
-       absolute
-       bottom
-        right
        :class="'rounded-t-xl'"
+       class="bottomBar"
       
        >
         <v-btn
@@ -84,6 +82,7 @@ export default {
 .justify{
     position: relative;
     top:50px;
+    height: 100%;
 }
 .input{
     position:absolute;
@@ -111,7 +110,10 @@ export default {
     bottom:50%;
     left:15%;
     width:70%;
-    
+}
+.bottomBar{
+    position:fixed;
+    bottom:0;
 }
 
 </style>
