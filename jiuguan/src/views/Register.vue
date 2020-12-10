@@ -16,16 +16,24 @@
         <!-- 密码的输入框 -->
         <v-text-field
           v-model="password"
-          :rules="passRules"
+          :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+          :rules="[rules.required, rules.min]"
+          :type="show ? 'text' : 'password'"
           label="password"
-          required
+          hint="At least 8 characters"
+          class="input-group--focused"
+          @click:append="show = !show"
         ></v-text-field>
         <!-- 验证密码的输入框 -->
         <v-text-field
-          v-model="reppass"
-          :rules="repRules"
-          label="reppass"
-          required
+          v-model="repeatpass"
+          :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+          :repeatRules="[repeatRules.required, rules.min]"
+          :type="show2 ? 'text' : 'password'"
+          label="repeatpass"
+          hint="At least 8 characters"
+          class="input-group--focused"
+          @click:append="show2 = !show2"
         ></v-text-field>
       </v-form>
     </div>
@@ -40,22 +48,27 @@ export default {
   //   };
   // },
   data: () => ({
-      regSrc: require("../images/register.png"),
-      valid: true,
-      name: '',
-      nameRules: [
-        v => !!v || 'Name is required',
-        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
-      ],
-      password: '',
-      passRules: [
-        v => !!v || 'password is required',
-        v => /.+@.+\..+/.test(v) || 'password must be valid',
-      ],
-      reppassword: '',
-      reppassword: [
-
-      ]
+    regSrc: require("../images/register.png"),
+    show: false,
+    show2: false,
+    valid: true,
+    name: "",
+    nameRules: [
+      v => !!v || "Name is required",
+      v => (v && v.length <= 5) || "Name must be less than 10 characters"
+    ],
+    password: "",
+    rules: {
+          required: value => !!value || 'Required.',
+          min: v => v.length >= 8 || 'Min 8 characters',
+          emailMatch: () => (`The email and password you entered don't match`),
+        },
+    repeat: "",
+    repeatRules: {
+          required: value => !!value || 'Required.',
+          min: v => v.length >= 8 || 'Min 8 characters',
+          emailMatch: () => (`The email and password you entered don't match`),
+    }
   })
 };
 </script>
