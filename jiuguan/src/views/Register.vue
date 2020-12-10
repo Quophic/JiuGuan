@@ -49,6 +49,7 @@ export default {
   // },
   data: () => ({
     regSrc: require("../images/register.png"),
+    count: 0,
     show: false,
     show2: false,
     valid: true,
@@ -59,17 +60,53 @@ export default {
     ],
     password: "",
     rules: {
-          required: value => !!value || 'Required.',
-          min: v => v.length >= 8 || 'Min 8 characters',
-          emailMatch: () => (`The email and password you entered don't match`),
-        },
+      required: value => !!value || "Required.",
+      min: v => v.length >= 8 || "Min 8 characters",
+      emailMatch: () => `The email and password you entered don't match`
+    },
     repeat: "",
     repeatRules: {
-          required: value => !!value || 'Required.',
-          min: v => v.length >= 8 || 'Min 8 characters',
-          emailMatch: () => (`The email and password you entered don't match`),
+      required: value => !!value || "Required.",
+      min: v => v.length >= 8 || "Min 8 characters",
+      emailMatch: () => `The email and password you entered don't match`
     }
-  })
+  }),
+
+  mounted: function() {
+    this.preload();
+  },
+
+  methods: {
+    preload: function() {
+      let imgs = [
+        "static/img/charts1.png",
+        "static/img/charts2.png",
+        "static/img/charts3.png",
+        "static/img/game.png",
+        "static/img/other-head.png",
+        "static/img/other-top.png",
+        "static/img/others-head.png",
+        "static/img/personal-head.png",
+        "static/img/perisonal-top.png",
+        "static/img/photo.png",
+        "static/img/photo1.png",
+        "static/img/photo2.png",
+        "static/img/photo3.png",
+        "static/img/review1.png",
+        "static/img/review2.png",
+        "static/img/review3.png",
+        "static/img/society.png"
+      ];
+
+      for (let img of imgs) {
+        let image = new Image();
+        image.src = img;
+        image.onload = () => {
+          this.count++;
+        };
+      }
+    }
+  }
 };
 </script>
 
