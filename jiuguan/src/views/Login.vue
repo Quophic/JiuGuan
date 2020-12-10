@@ -5,10 +5,10 @@
     </div>
     <h1 class="title">进入酒馆</h1>
     <div class="usernameInput">
-      <v-text-field outlined clearable prepend-inner-icon="perm_identity" label="login"></v-text-field>
+      <v-text-field outlined clearable prepend-inner-icon="perm_identity" label="username" v-model="loginForm.username"></v-text-field>
     </div>
     <div class="passwordInput">
-      <v-text-field outlined clearable type="password" prepend-inner-icon="lock" label="password"></v-text-field>
+      <v-text-field outlined clearable type="password" prepend-inner-icon="lock" label="password" v-model="loginForm.password"></v-text-field>
     </div>
     <div class="logbutton">
       <a href="/loginWelcome">
@@ -22,7 +22,44 @@
 </template>
 
 <script>
-export default {};
+import { mapMutations } from 'vuex';
+
+export default {
+  data() {
+    return {
+      loginForm: {
+        username: '',
+        password: '',
+      }
+    }
+  },
+
+  methods: {
+    ...mapMutations(['changeLogin']),
+    login () {
+      let that = this;
+      if (this.loginForm.username === '' || this.loginForm.password === '') {
+        alert('账号和密码不能为空');
+      } else {
+        this.axios ({
+          method: 'post',
+          url: '/user/login',
+          data: that.loginForm,
+        }).then(res => {
+          console.log(res.data),
+          that.userToken = 'Bearer ' + res.data.data.body.token;
+          //将用户的token存入vuex中
+          that.changeLogin({ Authorization: that.userToken })
+          that.$router.push('/push');  //成功之后跳转到主界面
+          alert('登录成功');
+        }).catch(error => {
+          alert('账号或密码错误');
+          console.log(error);
+        });
+      }
+    }
+  }
+};
 </script>
 
 <style>

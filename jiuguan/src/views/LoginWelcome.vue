@@ -1,5 +1,5 @@
 <template>
-  <p>注册成功，欢迎你来到酒馆</p>
+  <p>登录成功，欢迎你回到酒馆</p>
 </template>
 
 <script>
