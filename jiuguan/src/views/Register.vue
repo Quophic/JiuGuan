@@ -88,7 +88,7 @@ export default {
       } else {
         console.log("准备发送请求");
         this.$axios
-          .post(
+          .get(
             "/register?username=" + this.username + "&password=" + this.password
           )
           .then(function(res) {

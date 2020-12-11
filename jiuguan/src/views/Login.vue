@@ -84,7 +84,7 @@ export default {
             //将用户的token存入vuex中
             that.changeLogin({ Authorization: that.userToken });
             that.$router.push("/loading"); //成功之后跳转到登录成功后的界面
-            alert("登录成功");
+            // alert("登录成功");
           })
           .catch(function(error){
             alert("账号或密码错误");
