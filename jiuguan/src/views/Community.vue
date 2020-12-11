@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div>
-    <h1>这是社区</h1>
-    </div>
     
     <div style=" margin:30px 10px;">
       <v-card
@@ -11,19 +8,18 @@
       :key="index"
     >
      <v-card-title >
-       <div class="userHead">
-         <v-img max-height="100%" src="../assets/logo.png"></v-img>
-        </div>
-       <span class="id">{{item.id}}佚名</span>
+      <v-avatar>
+        <v-img max-height="100%" src="../assets/logo.png"></v-img>
+      </v-avatar>
+       <span class="id">{{item.FromName}}</span>
      </v-card-title>
      <v-card-text>
-       我咋知道
+       {{item.Content}}
      </v-card-text>
+
      <v-card-actions>
       <v-row
-        
         justify="end"
-      
       >
         <v-btn
         text
@@ -31,29 +27,41 @@
         width="80px"
         elevation="0"
        >
-         <v-icon >mdi-thumb-up</v-icon>
-        <span >{{item.likeNum}}7777</span> 
+         <v-icon color="grey" >mdi-thumb-up</v-icon>
+         <!-- 点赞数为零时不显示 -->
+        <span v-show="item.LikeNum">{{item.LikeNum}}</span> 
        </v-btn>
-       
-    
        <v-btn
         text
         height="30px"
         width="80px"
         elevation="0"
        >
-         <v-icon >mdi-message-processing-outline</v-icon>
-        <span class="num">{{item}}22</span> 
+         <v-icon color="grey" >mdi-message-processing-outline</v-icon>
+        <span class="num" v-show="item.ReplyNum">{{item.ReplyNum}}</span> 
        </v-btn>
       </v-row>
-       
-       
-    
      </v-card-actions>
-     
+      
     </v-card>
-  
+    
+       <v-btn  text @click="test">点击刷新</v-btn>
     </div>
+    <a href="/community/addContent">
+    <v-btn
+      color="red"
+      height="70px"
+      width="70px"
+      :elevation="3" 
+      size="70px" 
+      class="addNewContent rounded-circle" 
+      >
+      <v-icon
+      color="white" 
+      size="50px"
+      >mdi-plus</v-icon>
+      </v-btn>
+    </a>
     
   </div>
 </template>
@@ -62,42 +70,46 @@
 export default {
     data(){
       return{
-        contents:[
-          {},
-          {}
-        ]
+        contents:[],
+        pageNum:1
       }
     },
     methods:{
-        //请求comment测试
-        // test(){
-        //     this.$axios.get('/getcommentbytime').then(response => {
-        //             if (response.data) {
-        //                 console.log(response.data)
-        //             }
-        //         }).catch(err => {
-        //             alert('请求失败')
-        //         })
-        // }
+      //  请求comment测试
+        test(){
+          //当contents被清空时，pageNum要赋值为1
+            this.$axios.get('/getcommentbytime?PageSize=10&PageNum='+this.pageNum++).then(response => {
+                    if (response.data) {
+                        console.log(response.data.date)
+                        this.contents.push(...response.data.date)
+                    }
+                }).catch(err => {
+                    console.log(err)
+                })
+
+        },
     }
 };
 </script>
 
 <style  scoped>
-.userHead{
-  height:30px;
-  width:30px;
-  border-radius: 100%;
-  overflow: hidden;
-  margin-right:6%;
-}
+
 .contentPlace{
   margin:30px 10px;
+}
+.id{
+  margin-left:30px;
 }
 
 
 .num{
   font-size:10px
+}
+.addNewContent{
+  background-color:rgb(247, 247, 247);
+  position:fixed;
+  bottom:30px;
+  right:20px;
 }
 
 

@@ -5,7 +5,10 @@ import Login from '../views/Login.vue'
 import Start from '../views/Start.vue'
 import Register from '../views/Register.vue'
 import Community from '../views/Community.vue'
+
 import Loading from '../views/Loading.vue'
+import AddContent from '../views/AddContent.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -33,6 +36,11 @@ const routes = [
     path: '/loading',
     name: 'Loading',
     component: Loading
+  },
+  {
+    path:'/community/addContent',
+    name:'AddContent',
+    component:AddContent
   }
 ]
 
