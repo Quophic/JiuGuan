@@ -18,7 +18,13 @@
 
         <v-card-actions>
           <v-row justify="end">
-            <v-btn @click="like(item.ID)" text height="30px" width="80px" elevation="0">
+            <v-btn
+              @click="like(item.ID, index)"
+              text
+              height="30px"
+              width="80px"
+              elevation="0"
+            >
               <v-icon color="grey">mdi-thumb-up</v-icon>
               <!-- 点赞数为零时不显示 -->
               <span v-show="item.LikeNum">{{ item.LikeNum }}</span>
@@ -33,7 +39,7 @@
         </v-card-actions>
       </v-card>
 
-      <v-btn text @click="test">点击刷新</v-btn>
+      <v-btn text @click="test">加载过去</v-btn>
     </div>
     <a href="/community/addContent">
       <v-btn
@@ -63,7 +69,7 @@ export default {
     test() {
       //当contents被清空时，pageNum要赋值为1
       this.$axios
-        .get("/getcommentbytime?PageSize=10&PageNum=" + this.pageNum++)
+        .get("/getcommentbytime?PageSize=20&PageNum=" + this.pageNum++)
         .then((response) => {
           if (response.data) {
             console.log(response.data.date);
@@ -74,10 +80,14 @@ export default {
           console.log(err);
         });
     },
-    like(ID) {
+    like(ID, index) {
       this.$axios.get("/zan?ToId=" + ID + "&FromId=" + 10).then((response) => {
         console.log(response.data);
-        alert(response.data.msg)
+        if ((response.data.msg = "赞成功")) {
+          //点赞后点赞数+1，无需重新请求
+          this.contents[index].LikeNum++;
+        }
+        alert(response.data.msg);
       });
     },
   },
