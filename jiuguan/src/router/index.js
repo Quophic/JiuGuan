@@ -10,6 +10,7 @@ import Music from '../views/Music.vue'
 import Charts from '../views/Charts.vue'
 import Loading from '../views/Loading.vue'
 import AddContent from '../views/AddContent.vue'
+import User from '../views/User.vue'
 
 Vue.use(VueRouter)
 
@@ -59,6 +60,11 @@ const routes = [
     name: 'Charts',
     component: Charts
   },
+  {
+    path:'/user',
+    name:'name',
+    component:User
+  }
 ]
 
 const router = new VueRouter({
