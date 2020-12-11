@@ -99,8 +99,8 @@ export default {
       
     };
   },
-  creat(){
-      test()
+  created(){
+      this.test()
   },
   methods: {
     //  请求comment测试
