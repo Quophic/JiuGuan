@@ -52,11 +52,11 @@ export default {
           .get(
             "/upcomment?Content=" +
               this.newContent +
-              "&FromId=0" +
-              "&FromName=lsp"
+              "&FromId=" + sessionStorage.getItem("userID")    
           )
           .then((response) => {
             console.log(response.data);
+            alert(response.data.msg)
           });
 
         this.newContent = "";
