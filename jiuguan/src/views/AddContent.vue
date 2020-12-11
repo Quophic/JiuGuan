@@ -1,6 +1,23 @@
 <template>
   <div>
-    <div class="justify">
+    
+      <div class="justify">
+      <a href="/community">
+      <v-btn
+      text
+        height="70px"
+        width="70px"
+        class="rounded-circle "
+      >
+        <v-icon
+        size=33
+        color="#E16C6C"
+        >
+        keyboard_arrow_left
+      </v-icon>
+      </v-btn>
+      
+      </a>
       <v-btn
         text
         height="70px"
@@ -8,16 +25,14 @@
         class="rounded-circle add"
         @click="sendContent"
       >
-        <v-icon color="blue" size="50px">mdi-telegram</v-icon>
+        <v-icon color="#FDA6A6" size="35px">mdi-telegram</v-icon>
       </v-btn>
       <div class="input">
         <v-textarea
           v-model="newContent"
-          autofocus
           auto-grow
-          background-color="white"
-          outlined
-          counter
+          :class="'elevation-4'"
+          counter="200"
           :placeholder="placeHolder"
         >
         </v-textarea>
@@ -27,14 +42,16 @@
 
     <v-app-bar :class="'rounded-t-xl'" class="bottomBar">
       <v-btn text class="bottomBTN1">
-        <v-icon color="black">mdi-image-multiple-outline</v-icon>
+        <v-icon color="#A55959">mdi-image-multiple-outline</v-icon>
       </v-btn>
       <v-btn text class="bottomBTN2">
-        <v-icon size="27px" color="black"
+        <v-icon size="27px" color="#A55959"
           >mdi-pencil-box-multiple-outline</v-icon
         >
       </v-btn>
     </v-app-bar>
+ 
+    
   </div>
 </template>
 
@@ -48,7 +65,9 @@ export default {
   },
   methods: {
     sendContent() {
-      if (this.newContent.match(/[\S]/) != null) {
+      if (this.newContent.match(/[\S]/) == null  ) {
+        this.placeHolder = "禁止输入为空";
+      } else if(this.newContent.length <= 200) {
         console.log(this.newContent);
         this.$axios
           .get(
@@ -64,10 +83,10 @@ export default {
             alert(response.data.msg);
           });
 
-        this.newContent = "";
+        this.newContent = ""; 
         this.placeHolder = "说点什么吧？";
-      } else {
-        this.placeHolder = "禁止输入为空";
+      }else{
+        alert("字数超出限制")
       }
     },
   },
@@ -76,21 +95,20 @@ export default {
 
 <style  scoped>
 .justify {
-  position: relative;
-  top: 50px;
-  height: 100%;
+  height: 1000px;
+  background-color: #FFF3EA;
 }
 .input {
   position: absolute;
-  background-color: white;
   margin: auto;
-  top: 100px;
+  top:70px;
   left: 10%;
   width: 80%;
+  background-color:#F8D4B4
 }
 .add {
   position: absolute;
-  right: 10%;
+  right: 5%;
 }
 .bottomBTN1 {
   position: absolute;
@@ -109,5 +127,8 @@ export default {
 .bottomBar {
   position: fixed;
   bottom: 0;
+}
+a{
+  text-decoration: none;
 }
 </style>
