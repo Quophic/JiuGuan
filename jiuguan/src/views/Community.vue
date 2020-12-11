@@ -1,15 +1,14 @@
 <template >
-  <div style="background-color:#FFEBDB;height:100%">
+  <div style="background-color:#FFEBDB;">
     <div class="back">
-      <v-btn
-      width="20px">
+      <v-btn>
         返回
       </v-btn>
     </div>
-    <div>
-      <v-input>
-
-      </v-input>
+    <div class="search">
+      <v-text-field v-model="search" heght="100" append-icon="mdi-magnify" >
+        
+      </v-text-field>
     </div>
     <div class="play">
       
@@ -18,6 +17,8 @@
     interval="6000"
     :show-arrows="false"
     height="150px"
+    hide-delimiter-background
+    delimiter-icon="mdi-minus"
     >
         <v-carousel-item
         v-for="(item,index) in items"
@@ -29,9 +30,9 @@
         </v-carousel-item>
       </v-carousel>
     </div>
-    <div style="margin: 30px 10px">
+    <div  class="container">
       <v-card
-        style="margin: 20px 0"
+        style="margin: 15px 3px;background-color:#FFF2D8"
         v-for="(item, index) in contents"
         :key="index"
       >
@@ -91,6 +92,7 @@ export default {
     return {
       contents: [],
       pageNum: 1,
+      search:"",
       items:[
         {src:require("../images/society .png")},
         {src:require("../images/society .png")},
@@ -155,7 +157,20 @@ export default {
 }
 .back{
   margin:10px;
-  width:10px;
-  outline:hidden
+  width:20px;
+  outline:hidden;
+}
+.search{
+  background-color:#FCC192;
+  width:90%;
+  height:45px;
+  margin:0 auto;
+  margin-bottom:10px;
+}
+.container{
+  margin: 30px auto;
+  width:90%;
+  border-radius: 10px;
+  background-color:#FFFAF6
 }
 </style>
