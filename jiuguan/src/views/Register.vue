@@ -1,6 +1,5 @@
 <template>
   <div id="inputreg">
-    <h1>nmsl</h1>
     <div class="regBackground">
       <img :src="regSrc" width="100%" height="100%" alt="" />
     </div>
