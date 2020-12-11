@@ -1,5 +1,6 @@
 <template>
   <div id="inputreg">
+    <h1>nmsl</h1>
     <div class="regBackground">
       <img :src="regSrc" width="100%" height="100%" alt="" />
     </div>
@@ -26,9 +27,9 @@
         ></v-text-field>
         <!-- 验证密码的输入框 -->
         <v-text-field
-          v-model="repeatpass"
+          v-model="repeat"
           :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
-          :repeatRules="[repeatRules.required, rules.min]"
+          :repeatRules="[repeatRules.required, repeatRules.min]"
           :type="show2 ? 'text' : 'password'"
           label="repeatpass"
           hint="At least 8 characters"
@@ -36,7 +37,15 @@
           @click:append="show2 = !show2"
         ></v-text-field>
       </v-form>
-      <v-btn id="signInBtn" depressed large height="28px" width="95px" @click="signIn">注册</v-btn>
+      <v-btn
+        id="signInBtn"
+        depressed
+        large
+        height="28px"
+        width="95px"
+        @click="signIn"
+        >注册</v-btn
+      >
     </div>
   </div>
 </template>
@@ -56,22 +65,48 @@ export default {
     username: "",
     nameRules: [
       v => !!v || "Name is required",
-      v => (v && v.length <= 5) || "Name must be less than 10 characters"
+      v => (v && v.length <= 10) || "Name must be less than 10 characters"
     ],
     password: "",
     rules: {
       required: value => !!value || "Required.",
-      min: v => v.length >= 8 || "Min 8 characters",
-      emailMatch: () => `The email and password you entered don't match`
+      min: v => v.length >= 8 || "Min 8 characters"
     },
     repeat: "",
     repeatRules: {
       required: value => !!value || "Required.",
-      min: v => v.length >= 8 || "Min 8 characters",
-      emailMatch: () => `The email and password you entered don't match`
+      min: v => v.length >= 8 || "Min 8 characters"
+      // emailMatch: () => `The email and password you entered don't match`
     }
   }),
-
+  methods: {
+    signIn() {
+      var that = this;
+      if (
+        this.password === "" ||
+        this.username === "" ||
+        this.repeat === ""
+      ) {
+        alert("账号密码不能为空");
+      } else if (this.password !== this.repeat) {
+        alert("输入的密码不一致");
+      } else {
+        console.log("准备发送请求");
+        this.$axios
+          .post(
+            "/register?username=" +
+              this.username +
+              "&password=" +
+              this.password
+          )
+          .then(function(res) {
+            console.log("good job");
+            console.log(res)
+          });
+        console.log("注册成功");
+      }
+    }
+  }
 };
 </script>
 
@@ -96,7 +131,6 @@ export default {
 #signInBtn {
   position: fixed;
   left: 135px;
-  background-color: #E2806A;
+  background-color: #e2806a;
 }
-
 </style>
