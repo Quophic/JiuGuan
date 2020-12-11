@@ -20,7 +20,7 @@
       </div>
       <div class="some1">125发表</div>
       <div class="some2">102好友</div>
-      <div class="some3">13成就</div>
+      <div class="some3">126成就</div>
     </div>
   </div>
 </template>
@@ -103,14 +103,43 @@ p {
   background-color: #ff7c74;
 }
 
-.some1
-.some2
+.some1,
+.some2,
 .some3 {
-    background-color: red;
-    position: absolute;
-    width: 28px;
-    height: 40px;
-    font-size: 14px;
-    color: #B40000;
+  position: absolute;
+  width: 28px;
+  height: 40px;
+  font-size: 14px;
+  color: #b40000;
+}
+
+.some1 {
+  left: 27px;
+  bottom: 16px;
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 20px;
+  color: #b40000;
+}
+
+.some2 {
+  left: 154px;
+  bottom: 17px;
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 20px;
+  color: #b40000;
+}
+
+.some3 {
+  right: 35px;
+  bottom: 16px;
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 20px;
+  color: #b40000;
 }
 </style>
