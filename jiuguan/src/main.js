@@ -7,8 +7,11 @@ import store from './store'
 import vuetify from './plugins/vuetify';
 import VueResource from 'vue-resource' // 导入vue-resource
 import Axios from 'axios'
+import global from './store/Global.vue'
 
 Vue.config.productionTip = false
+
+Vue.prototype.global = global
 
 
 //网络请求使用
