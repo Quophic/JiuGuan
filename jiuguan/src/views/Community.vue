@@ -18,7 +18,7 @@
 
         <v-card-actions>
           <v-row justify="end">
-            <v-btn text height="30px" width="80px" elevation="0">
+            <v-btn @click="like(item.ID)" text height="30px" width="80px" elevation="0">
               <v-icon color="grey">mdi-thumb-up</v-icon>
               <!-- 点赞数为零时不显示 -->
               <span v-show="item.LikeNum">{{ item.LikeNum }}</span>
@@ -73,6 +73,12 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+    like(ID) {
+      this.$axios.get("/zan?ToId=" + ID + "&FromId=" + 10).then((response) => {
+        console.log(response.data);
+        alert(response.data.msg)
+      });
     },
   },
 };
