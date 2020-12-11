@@ -3,6 +3,13 @@
     <div class="background">
       <img :src="bgImg" width="375px" height="275px" />
     </div>
+        <div class="quit">
+      <a href="/home">
+        <v-btn icon color="#E16C6C" class="quitIcon">
+          <v-icon large>keyboard_arrow_left</v-icon>
+        </v-btn>
+      </a>
+    </div>
     <div class="photoWall">
       <h3>他的照片墙/</h3>
       <p>仅显示对方允许显示的部分</p>
@@ -78,6 +85,22 @@ p {
   color: #611010;
   top: 417px;
   left: 20px;
+}
+
+.quit {
+  position: absolute;
+  left: 25px;
+  top: 55px;
+  width: 28px;
+  height: 28px;
+  box-shadow: 0px 3px 6px rgba(173, 53, 0, 0.16);
+  background-color: #ffffff;
+}
+
+.quitIcon {
+  position: absolute;
+  left: -5px;
+  top: -4px;
 }
 
 .avatar {
