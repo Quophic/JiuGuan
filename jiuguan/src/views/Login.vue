@@ -84,6 +84,8 @@ export default {
             // that.userToken = "Bearer " + res.data.token;
             //sessionStorage.getItem("userID")
             sessionStorage.setItem("userID",res.data.s.ID)
+            sessionStorage.setItem("userName",res.data.s.UserName)
+            
 
             // console.log(that.userToken)
             //将用户的token存入vuex中

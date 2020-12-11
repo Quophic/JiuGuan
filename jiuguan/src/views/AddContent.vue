@@ -30,7 +30,9 @@
         <v-icon color="black">mdi-image-multiple-outline</v-icon>
       </v-btn>
       <v-btn text class="bottomBTN2">
-        <v-icon size="27px" color="black">mdi-pencil-box-multiple-outline</v-icon>
+        <v-icon size="27px" color="black"
+          >mdi-pencil-box-multiple-outline</v-icon
+        >
       </v-btn>
     </v-app-bar>
   </div>
@@ -52,11 +54,14 @@ export default {
           .get(
             "/upcomment?Content=" +
               this.newContent +
-              "&FromId=" + sessionStorage.getItem("userID")    
+              "&FromId=" +
+              sessionStorage.getItem("userID") +
+              "&FRomName=" +
+              sessionStorage.getItem("userName")
           )
           .then((response) => {
             console.log(response.data);
-            alert(response.data.msg)
+            alert(response.data.msg);
           });
 
         this.newContent = "";
