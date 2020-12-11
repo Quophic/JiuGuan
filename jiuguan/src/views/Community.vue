@@ -1,5 +1,34 @@
-<template>
-  <div>
+<template >
+  <div style="background-color:#FFEBDB;height:100%">
+    <div class="back">
+      <v-btn
+      width="20px">
+        返回
+      </v-btn>
+    </div>
+    <div>
+      <v-input>
+
+      </v-input>
+    </div>
+    <div class="play">
+      
+    <v-carousel
+    cycle
+    interval="6000"
+    :show-arrows="false"
+    height="150px"
+    >
+        <v-carousel-item
+        v-for="(item,index) in items"
+        :key="index"
+        :src="item.src"
+       
+        >
+
+        </v-carousel-item>
+      </v-carousel>
+    </div>
     <div style="margin: 30px 10px">
       <v-card
         style="margin: 20px 0"
@@ -8,7 +37,7 @@
       >
         <v-card-title>
           <v-avatar>
-            <v-img max-height="100%" src="../assets/logo.png"></v-img>
+            <v-img max-height="100%" src="../assets/charts1.png"></v-img>
           </v-avatar>
           <span class="id">{{ item.FromName }}</span>
         </v-card-title>
@@ -62,7 +91,16 @@ export default {
     return {
       contents: [],
       pageNum: 1,
+      items:[
+        {src:require("../images/society .png")},
+        {src:require("../images/society .png")},
+        {src:require("../images/society .png")},
+      ],
+      
     };
+  },
+  creat(){
+      test()
   },
   methods: {
     //  请求comment测试
@@ -110,5 +148,14 @@ export default {
   position: fixed;
   bottom: 30px;
   right: 20px;
+}
+.play{
+  width:90%;
+  margin: 0 auto;
+}
+.back{
+  margin:10px;
+  width:10px;
+  outline:hidden
 }
 </style>
