@@ -1,24 +1,32 @@
 <template>
   <div class="charts">
     <div class="quit">
-      <v-btn icon color="#E16C6C" class="quitIcon">
-        <v-icon large>keyboard_arrow_left</v-icon>
-      </v-btn>
+      <a href="/home">
+        <v-btn icon color="#E16C6C" class="quitIcon" @chick="quit">
+          <v-icon large>keyboard_arrow_left</v-icon>
+        </v-btn>
+      </a>
     </div>
     <div class="top3"></div>
     <div class="others">
-      <ul id="topList">
-        <li v-for="item in topList" :key="item.id">
-          <div class="eachPeople">
-            {{ item.UserName }}
-          </div>
-          <div class="eachPeople">
-            {{ item.Alcohol }}
-          </div>
-        </li>
-      </ul>
+      <div class="otherList">
+        <ul id="ulList">
+          <li id="topList" v-for="item in topList" :key="item.id">
+            <div class="eachPeople">
+              {{ item.UserName }}
+            </div>
+            <div class="eachPeople">
+              {{ item.Alcohol }}
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="bot"></div>
+    <div class="bot">
+      <div class="botPeople">
+        {{ item.UserName }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -52,12 +60,10 @@ export default {
   background-color: #ffefe5;
 }
 
-#topList {
-  position: flex;
-  flex-direction: column;
-  margin: auto;
-  width: 100%;
-}
+/* ul {
+    display: flex;
+    flex-direction: row;
+} */
 
 .top {
   margin-top: 24px;
@@ -77,6 +83,33 @@ export default {
   position: fixed;
   left: 20px;
   top: 51px;
+}
+
+.eachPeople {
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+  height: 39.5px;
+}
+
+.botPeople {
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+  height: 39.5px;
+}
+
+#ulList {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  width: 224px;
+  right: 0px;
+}
+
+#topList {
+  display: flex;
+  margin-top: 20px;
 }
 
 .top3 {
@@ -106,6 +139,7 @@ export default {
   height: 58px;
   width: 375px;
   background-color: #ffffff;
+  box-shadow: 0px -3px 6px rgba(0, 0, 0, 0.05);
 }
 
 li {
