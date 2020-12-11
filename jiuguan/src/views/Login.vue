@@ -88,25 +88,8 @@ export default {
           })
           .catch(function(error){
             alert("账号或密码错误");
+            // console.log(error)
           })
-        // this.$axios({
-        //   method: "post",
-        //   url: "http://121.196.45.183:8080", //接口地址的url
-        //   data: that.loginForm
-        // })
-        //   .then(res => {
-        //     console.log(res),
-        //       // console.log(res.data),
-        //       (that.userToken = "Bearer " + res.data.data.body.token);
-        //     //将用户的token存入vuex中
-        //     that.changeLogin({ Authorization: that.userToken });
-        //     that.$router.push("/loading"); //成功之后跳转到登录成功后的界面
-        //     alert("登录成功");
-        //   })
-        //   .catch(error => {
-        //     alert("账号或密码错误");
-        //     console.log(error);
-        //   });
       }
     }
   }

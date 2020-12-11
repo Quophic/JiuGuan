@@ -21,15 +21,16 @@ export default {
   methods: {
     preload: function() {
       let imgs = [
-        "static/img/charts1.png",
-        "static/img/charts2.png",
-        "static/img/charts3.png",
-        "static/img/game.png",
         "static/img/other-head.png",
         "static/img/other-top.png",
         "static/img/others-head.png",
         "static/img/personal-head.png",
         "static/img/perisonal-top.png",
+        "static/img/charts1.png",
+        "static/img/charts2.png",
+        "static/img/charts3.png",
+        "static/img/game.png",
+        "static/img/loading.png",
         "static/img/photo.png",
         "static/img/photo1.png",
         "static/img/photo2.png",
