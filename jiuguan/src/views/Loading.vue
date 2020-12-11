@@ -1,7 +1,7 @@
 <template>
 <div>
     <h1>nmsl</h1>
-    <p>{{ percent }}</p>
+    <p>{{ this.percent }}</p>
 </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   data() {
     return {
       count: 0,
-      percent: ''
+      percent: '',
     };
   },
 
@@ -38,13 +38,14 @@ export default {
         "static/img/review2.png",
         "static/img/review3.png",
         "static/img/society.png"
-      ];
+      ]
 
       for (let img of imgs) {
         let image = new Image();
         image.src = img;
         image.onload = () => {
           this.count++;
+          console.log(this.count)
           // 计算图片加载的百分数，绑定到percent变量
           let percentNum = Math.floor((this.count / 14) * 100);
           this.percent = `${percentNum}%`;
@@ -58,7 +59,7 @@ export default {
       console.log(val)
       if (val === 18) {
         // 图片加载完成后跳转页面
-        this.$router.push({ path: "cover" });
+        this.$router.push({ path: "/cover" });
       }
     }
   }
