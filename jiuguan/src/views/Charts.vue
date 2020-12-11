@@ -2,7 +2,7 @@
   <div class="charts">
     <div class="quit">
       <a href="/home">
-        <v-btn icon color="#E16C6C" class="quitIcon" @chick="quit">
+        <v-btn icon color="#E16C6C" class="quitIcon">
           <v-icon large>keyboard_arrow_left</v-icon>
         </v-btn>
       </a>
@@ -23,8 +23,14 @@
       </div>
     </div>
     <div class="bot">
-      <div class="botPeople">
-        {{ item.UserName }}
+        <div class="myName">
+            
+        </div>
+      <div class="myRank">
+        {{ myRank }}
+      </div>
+      <div class="myAlco">
+          {{ myAlcohol }}
       </div>
     </div>
   </div>
@@ -34,7 +40,8 @@
 export default {
   data() {
     return {
-      topList: []
+      topList: [],
+      myRank: ''
     };
   },
   created() {
@@ -43,10 +50,11 @@ export default {
   methods: {
     convert: function() {
       var that = this; //保留this
-      this.$axios.get("/getrank?PageSize=5&PageNum=1").then(function(res) {
+      this.$axios.get("/getrank?PageSize=5&PageNum=1&UserId=" + sessionStorage.getItem("userID")).then(function(res) {
         console.log(res);
         that.topList = res.data.date;
-        console.log(that.topList);
+        that.myRank = res.data.rank;
+        that.myAlcohol = res.data.alcohol
       });
     }
   }
