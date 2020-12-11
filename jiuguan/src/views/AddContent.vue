@@ -27,10 +27,10 @@
 
     <v-app-bar :class="'rounded-t-xl'" class="bottomBar">
       <v-btn text class="bottomBTN1">
-        <v-icon>mdi-image-multiple-outline</v-icon>
+        <v-icon color="black">mdi-image-multiple-outline</v-icon>
       </v-btn>
       <v-btn text class="bottomBTN2">
-        <v-icon size="27px">mdi-pencil-box-multiple-outline</v-icon>
+        <v-icon size="27px" color="black">mdi-pencil-box-multiple-outline</v-icon>
       </v-btn>
     </v-app-bar>
   </div>
