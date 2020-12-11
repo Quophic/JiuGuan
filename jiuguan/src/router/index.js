@@ -6,6 +6,8 @@ import Start from '../views/Start.vue'
 import Register from '../views/Register.vue'
 import Community from '../views/Community.vue'
 import Home from '../views/Home.vue'
+import Music from '../views/Music.vue'
+import Charts from '../views/Charts.vue'
 import Loading from '../views/Loading.vue'
 import AddContent from '../views/AddContent.vue'
 
@@ -43,10 +45,20 @@ const routes = [
     component: Home
   },
   {
-    path:'/community/addContent',
-    name:'AddContent',
-    component:AddContent
-  }
+    path: '/community/addContent',
+    name: 'AddContent',
+    component: AddContent
+  },
+  {
+    path: '/music',
+    name: 'Music',
+    component: Music
+  },
+  {
+    path: '/charts',
+    name: 'Charts',
+    component: Charts
+  },
 ]
 
 const router = new VueRouter({
