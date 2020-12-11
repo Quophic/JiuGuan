@@ -85,7 +85,9 @@ export default {
         alert("账号密码不能为空");
       } else if (this.password !== this.repeat) {
         alert("输入的密码不一致");
-      } else {
+      } else if (this.password.length < 8) {
+        alert("请输入正确的密码");
+      }else {
         console.log("准备发送请求");
         this.$axios
           .get(
@@ -95,6 +97,7 @@ export default {
             // console.log("good job");
             that.$router.push("/loading"); //成功之后跳转到登录成功后的界面
             console.log("注册成功");
+
           });
       }
     }

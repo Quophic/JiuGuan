@@ -21,7 +21,7 @@ export default {
     }
   },
   mounted() {
-    this.timer = setTimeout(this.go, 4000);
+    this.timer = setTimeout(this.go, 3000);
   },
   beforeDestroy() {
     clearTimeout(this.timer)
