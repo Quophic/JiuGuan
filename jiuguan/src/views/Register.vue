@@ -7,7 +7,7 @@
       <v-form ref="form" v-model="valid" lazy-validation>
         <!-- 用户名的输入框 -->
         <v-text-field
-          v-model="name"
+          v-model="username"
           :counter="10"
           :rules="nameRules"
           label="Name"
@@ -36,6 +36,7 @@
           @click:append="show2 = !show2"
         ></v-text-field>
       </v-form>
+      <v-btn id="signInBtn" depressed large height="28px" width="95px" @click="signIn">注册</v-btn>
     </div>
   </div>
 </template>
@@ -52,7 +53,7 @@ export default {
     show: false,
     show2: false,
     valid: true,
-    name: "",
+    username: "",
     nameRules: [
       v => !!v || "Name is required",
       v => (v && v.length <= 5) || "Name must be less than 10 characters"
@@ -91,4 +92,11 @@ export default {
   background-size: 100% 100%;
   background-position: center;
 }
+
+#signInBtn {
+  position: fixed;
+  left: 135px;
+  background-color: #E2806A;
+}
+
 </style>
