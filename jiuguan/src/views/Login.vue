@@ -72,12 +72,16 @@ export default {
       let that = this;
       if (this.username === "" || this.password === "") {
         alert("账号和密码不能为空");
-      } else {
+      } 
+      else {
         this.$axios
           .post("/in?username=" + this.username + "&password=" + this.password)
           .then(function(res) {
             console.log("顺利运行");
             console.log(res)
+          })
+          .catch(function(error){
+            alert("账号或密码错误");
           })
         // this.$axios({
         //   method: "post",
