@@ -57,11 +57,11 @@
             >
               <v-icon color="grey">mdi-thumb-up</v-icon>
               <!-- 点赞数为零时不显示 -->
-              <span v-show="item.LikeNum">{{ item.LikeNum }}</span>
+              <span v-show="item.LikeNum" style="color:grey">{{ item.LikeNum }}</span>
             </v-btn>
             <v-btn text height="30px" width="80px" elevation="0">
               <v-icon color="grey">mdi-message-processing-outline</v-icon>
-              <span class="num" v-show="item.ReplyNum">{{
+              <span class="num" v-show="item.ReplyNum" style="color:grey">{{
                 item.ReplyNum
               }}</span>
             </v-btn>
@@ -123,7 +123,7 @@ export default {
     like(ID, index) {
       this.$axios.get("/zan?ToId=" + ID + "&FromId=" + 10).then((response) => {
         console.log(response.data);
-        if ((response.data.msg = "赞成功")) {
+        if ((response.data.msg == "赞成功")) {
           //点赞后点赞数+1，无需重新请求
           this.contents[index].LikeNum++;
         }
