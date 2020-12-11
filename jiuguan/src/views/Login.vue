@@ -32,7 +32,7 @@
         height="28px"
         width="95px"
         @click="login"
-        >注册</v-btn
+        >登录</v-btn
       >
     </div>
   </div>
@@ -70,10 +70,15 @@ export default {
 
     login() {
       let that = this;
-      if (this.loginForm.username === "" || this.loginForm.password === "") {
+      if (this.username === "" || this.password === "") {
         alert("账号和密码不能为空");
       } else {
-
+        this.$axios
+          .post("/in?username=" + this.username + "&password=" + this.password)
+          .then(function(res) {
+            console.log("顺利运行");
+            console.log(res)
+          })
         // this.$axios({
         //   method: "post",
         //   url: "http://121.196.45.183:8080", //接口地址的url
