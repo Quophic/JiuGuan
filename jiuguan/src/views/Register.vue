@@ -93,7 +93,6 @@ export default {
           )
           .then(function(res) {
             // console.log("good job");
-            console.log(res); //注册有检验用户名是否存在，但是没有特定的状态码，如果有状态码就可以根据返回的状态码进行弹窗提醒
             that.$router.push("/loading"); //成功之后跳转到登录成功后的界面
             console.log("注册成功");
           });
