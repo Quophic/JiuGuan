@@ -75,10 +75,16 @@ export default {
       } 
       else {
         this.$axios
-          .post("/in?username=" + this.username + "&password=" + this.password)
+          .post("/autoin?username=" + that.username + "&password=" + that.password)
           .then(function(res) {
             console.log("顺利运行");
-            console.log(res)
+            console.log(res.data);
+            that.userToken = "Bearer " + res.data.token;
+            // console.log(that.userToken)
+            //将用户的token存入vuex中
+            that.changeLogin({ Authorization: that.userToken });
+            that.$router.push("/loading"); //成功之后跳转到登录成功后的界面
+            alert("登录成功");
           })
           .catch(function(error){
             alert("账号或密码错误");
