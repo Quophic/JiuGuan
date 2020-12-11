@@ -7,7 +7,6 @@ export default new Vuex.Store({
   state:{
     //存储token
     Authorization: localStorage.getItem('Authorization') ? localStorage.getItem('Authorization') : ''
-
   },
   actions:{
 
