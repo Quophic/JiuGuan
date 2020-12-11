@@ -5,7 +5,7 @@ import Login from '../views/Login.vue'
 import Start from '../views/Start.vue'
 import Register from '../views/Register.vue'
 import Community from '../views/Community.vue'
-
+import Home from '../views/Home.vue'
 import Loading from '../views/Loading.vue'
 import AddContent from '../views/AddContent.vue'
 
@@ -36,6 +36,11 @@ const routes = [
     path: '/loading',
     name: 'Loading',
     component: Loading
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: Home
   },
   {
     path:'/community/addContent',
