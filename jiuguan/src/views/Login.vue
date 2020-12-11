@@ -1,68 +1,97 @@
 <template>
   <div id="inputLogin">
-    <div class="loginBackground">    
-      
+    <div class="loginBackground">
+      <img :src="startSrc" width="100%" height="100%" alt="" />
     </div>
-    <h1 class="title">进入酒馆</h1>
-    <div class="usernameInput">
-      <v-text-field outlined clearable prepend-inner-icon="perm_identity" label="username" v-model="loginForm.username"></v-text-field>
-    </div>
-    <div class="passwordInput">
-      <v-text-field outlined clearable type="password" prepend-inner-icon="lock" label="password" v-model="loginForm.password"></v-text-field>
-    </div>
-    <div class="logbutton">
-        <v-btn id="loginBtn" depressed large height="28px" width="95px" @click="login">登录</v-btn>
-      <a href="/register">
-        <v-btn id="regBtn" depressed large height="28px" width="95px">注册</v-btn>
-      </a>  
+    <!-- 用户名的输入框 -->
+    <div class="loginForm">
+      <v-form ref="form" v-model="valid" lazy-validation>
+        <v-text-field
+          v-model="username"
+          :counter="10"
+          :rules="nameRules"
+          label="Name"
+          required
+        ></v-text-field>
+        <!-- 密码的输入框 -->
+        <v-text-field
+          v-model="password"
+          :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+          :rules="[rules.required, rules.min]"
+          :type="show ? 'text' : 'password'"
+          label="password"
+          hint="At least 8 characters"
+          class="input-group--focused"
+          @click:append="show = !show"
+        ></v-text-field>
+      </v-form>
+      <v-btn
+        id="loginBtn"
+        depressed
+        large
+        height="28px"
+        width="95px"
+        @click="login"
+        >注册</v-btn
+      >
     </div>
   </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapMutations } from "vuex";
 
 export default {
   data() {
     return {
+      startSrc: require("../images/start.png"),
       loginForm: {
-        username: '',
-        password: '',
+        username: "",
+        password: ""
+      },
+      show: false,
+      show2: false,
+      valid: true,
+      username: "",
+      nameRules: [
+        v => !!v || "Name is required",
+        v => (v && v.length <= 10) || "Name must be less than 10 characters"
+      ],
+      password: "",
+      rules: {
+        required: value => !!value || "Required.",
+        min: v => v.length >= 8 || "Min 8 characters"
       }
-    }
+    };
   },
 
   methods: {
-    ...mapMutations(['changeLogin']),
+    ...mapMutations(["changeLogin"]),
 
-    login () {
+    login() {
       let that = this;
-      if (this.loginForm.username === '' || this.loginForm.password === '') {
-        alert('账号和密码不能为空');
+      if (this.loginForm.username === "" || this.loginForm.password === "") {
+        alert("账号和密码不能为空");
       } else {
-        // console.log("确实不为空")
-        //下面对是否跨域成功进行测试
-        // this.$axios.get("http://localhost:8000/products") //这个get的是对应数据存放的api
-        // .then(function(res){
-        //   console.log("正常运行")
-        //   console.log(res)
+
+        // this.$axios({
+        //   method: "post",
+        //   url: "http://121.196.45.183:8080", //接口地址的url
+        //   data: that.loginForm
         // })
-        this.$axios ({
-          method: 'post',
-          url: 'http://121.196.45.183:8080',  //接口地址的url
-          data: that.loginForm,
-        }).then(res => {
-          console.log(res),
-          // console.log(res.data),
-          that.userToken = 'Bearer ' + res.data.data.body.token;
-          //将用户的token存入vuex中
-          that.changeLogin({ Authorization: that.userToken })
-          that.$router.push('/loading');  //成功之后跳转到登录成功后的界面
-          alert('登录成功');
-        }).catch(error => {
-          alert('账号或密码错误');
-          console.log(error);
-        });
+        //   .then(res => {
+        //     console.log(res),
+        //       // console.log(res.data),
+        //       (that.userToken = "Bearer " + res.data.data.body.token);
+        //     //将用户的token存入vuex中
+        //     that.changeLogin({ Authorization: that.userToken });
+        //     that.$router.push("/loading"); //成功之后跳转到登录成功后的界面
+        //     alert("登录成功");
+        //   })
+        //   .catch(error => {
+        //     alert("账号或密码错误");
+        //     console.log(error);
+        //   });
       }
     }
   }
@@ -70,45 +99,26 @@ export default {
 </script>
 
 <style>
-.usernameInput,
-.passwordInput {
+.loginForm {
   position: fixed;
-  width: 182px;
-  height: 20px;
-}
-
-.usernameInput {
   top: 100px;
-  left: 100px;
+  left: 63px;
+  width: 250px;
+  height: 150px;
 }
 
-.passwordInput {
-  top: 180px;
-  left: 100px;
-}
-
-h1 {
+.background {
   position: fixed;
-  top: 60px;
-  left: 150px;
-}
-
-.logbutton {
-  position: fixed;
-  top: 300px;
-  left: 100px;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+  background-position: center;
 }
 
 #loginBtn {
   position: fixed;
-  top: 300px;
-  left: 75px;
+  left: 135px;
+  background-color: #e2806a;
 }
-
-#regBtn {
-  position: fixed;
-  top: 300px;
-  left: 200px;
-}
-
 </style>
