@@ -7,8 +7,16 @@
     </div>
     <div class="top3"></div>
     <div class="others">
-        <ul>
-        </ul>
+      <ul id="topList">
+        <li v-for="item in topList" :key="item.id">
+          <div class="eachPeople">
+            {{ item.UserName }}
+          </div>
+          <div class="eachPeople">
+            {{ item.Alcohol }}
+          </div>
+        </li>
+      </ul>
     </div>
     <div class="bot"></div>
   </div>
@@ -16,15 +24,24 @@
 
 <script>
 export default {
-    data() {
-        return {
-            topList: [],
-        }
-    },
-    methods: {
-        
+  data() {
+    return {
+      topList: []
+    };
+  },
+  created() {
+    this.convert();
+  },
+  methods: {
+    convert: function() {
+      var that = this; //保留this
+      this.$axios.get("/getrank?PageSize=5&PageNum=1").then(function(res) {
+        console.log(res);
+        that.topList = res.data.date;
+        console.log(that.topList);
+      });
     }
-
+  }
 };
 </script>
 
@@ -35,8 +52,15 @@ export default {
   background-color: #ffefe5;
 }
 
+#topList {
+  position: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+}
+
 .top {
-    margin-top: 24px;
+  margin-top: 24px;
 }
 
 .quit {
@@ -85,6 +109,6 @@ export default {
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 </style>

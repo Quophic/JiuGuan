@@ -79,7 +79,8 @@ export default {
           .then(function(res) {
             console.log("顺利运行");
             console.log(res.data);
-            that.userToken = "Bearer " + res.data.token;
+            that.userToken = res.data.token;
+            // that.userToken = "Bearer " + res.data.token;
             // console.log(that.userToken)
             //将用户的token存入vuex中
             that.changeLogin({ Authorization: that.userToken });
