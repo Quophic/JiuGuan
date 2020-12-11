@@ -56,7 +56,7 @@ export default {
               this.newContent +
               "&FromId=" +
               sessionStorage.getItem("userID") +
-              "&FRomName=" +
+              "&FromName=" +
               sessionStorage.getItem("userName")
           )
           .then((response) => {
