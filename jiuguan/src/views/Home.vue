@@ -33,7 +33,7 @@
           <v-btn block class="toChart" height="150px"></v-btn>
         </a>
       </div>
-      <img class="battery" />
+      <img class="battery" :src="battery"/>
       <div class="point"></div>
     </div>
     <div class="music">
@@ -72,7 +72,8 @@ export default {
     return {
       value: "home",
       hole: require("../images/hole.png"),
-      homeTop: require("../images/homeTop.png")
+      homeTop: require("../images/homeTop.png"),
+      battery: require("../images/battery.png")
     };
   }
 };
@@ -236,14 +237,10 @@ export default {
   opacity: 1;
 }
 
-.line1 {
+.battery {
   position: absolute;
-  left: 28px;
-  top: 351px;
-  width: 314px;
-  height: 0px;
-  border: 3px solid #fff7ea;
-  opacity: 1;
+  right: 15px;
+  bottom: 9px;
 }
 
 .together {
