@@ -75,7 +75,7 @@
     </div>
     <a href="/community/addContent">
       <v-btn
-        color="red"
+        color="#611010"
         height="70px"
         width="70px"
         :elevation="3"
@@ -148,7 +148,7 @@ export default {
   font-size: 10px;
 }
 .addNewContent {
-  background-color: rgb(247, 247, 247);
+  background-color: #611010;
   position: fixed;
   bottom: 30px;
   right: 20px;
