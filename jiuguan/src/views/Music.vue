@@ -26,17 +26,17 @@ export default {
     return {
       music: [
         {
-          src: require("../images/photo1.png"),
+          src: require("../images/p1.png"),
           name: "海浪",
           musicSrc: require("../musics/song.mp3"),
         },
         {
-          src: require("../images/photo2.png"),
+          src: require("../images/p2.png"),
           name: "舒缓",
           musicSrc: require("../musics/song.mp3"),
         },
         {
-          src: require("../images/photo.png"),
+          src: require("../images/p3.png"),
           name: "雨声",
           musicSrc: require("../musics/song.mp3"),
         },

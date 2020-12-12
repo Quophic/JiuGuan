@@ -1,5 +1,5 @@
 <template >
-  <div style="background-color:#FFEBDB;">
+  <div style="background-color: #ffebdb">
     <div class="quit">
       <a href="/home">
         <v-btn icon color="#E16C6C" class="quitIcon">
@@ -8,33 +8,34 @@
       </a>
     </div>
     <div class="search">
-      <v-text-field v-model="search" heght="100" append-icon="mdi-magnify" >
-        
+      <v-text-field
+        v-model="searchv"
+        heght="100"
+        append-icon="mdi-magnify"
+        @keyup.enter="search"
+      >
       </v-text-field>
     </div>
     <div class="play">
-      
-    <v-carousel
-    cycle
-    interval="6000"
-    :show-arrows="false"
-    height="150px"
-    hide-delimiter-background
-    delimiter-icon="mdi-minus"
-    >
+      <v-carousel
+        cycle
+        interval="6000"
+        :show-arrows="false"
+        height="150px"
+        hide-delimiter-background
+        delimiter-icon="mdi-minus"
+      >
         <v-carousel-item
-        v-for="(item,index) in items"
-        :key="index"
-        :src="item.src"
-       
+          v-for="(item, index) in items"
+          :key="index"
+          :src="item.src"
         >
-
         </v-carousel-item>
       </v-carousel>
     </div>
-    <div  class="container">
+    <div class="container">
       <v-card
-        style="margin: 15px 3px;background-color:#FFF2D8"
+        style="margin: 15px 3px; background-color: #fff2d8"
         v-for="(item, index) in contents"
         :key="index"
       >
@@ -59,14 +60,24 @@
             >
               <v-icon color="grey">mdi-thumb-up</v-icon>
               <!-- 点赞数为零时不显示 -->
-              <span v-show="item.LikeNum" style="color:grey">{{ item.LikeNum }}</span>
-            </v-btn>
-            <v-btn text height="30px" width="80px" elevation="0">
-              <v-icon color="grey">mdi-message-processing-outline</v-icon>
-              <span class="num" v-show="item.ReplyNum" style="color:grey">{{
-                item.ReplyNum
+              <span v-show="item.LikeNum" style="color: grey">{{
+                item.LikeNum
               }}</span>
             </v-btn>
+            <a href="/reply" @click="getReply(item.ID)">
+              <v-btn
+                text
+                height="30px"
+                width="80px"
+                elevation="0"
+               
+              >
+                <v-icon color="grey">mdi-message-processing-outline</v-icon>
+                <span class="num" v-show="item.ReplyNum" style="color: grey">{{
+                  item.ReplyNum
+                }}</span>
+              </v-btn>
+            </a>
           </v-row>
         </v-card-actions>
       </v-card>
@@ -121,11 +132,10 @@ export default {
         {src:require("../images/society .png")},
         {src:require("../images/society2.png")},
       ],
-      
     };
   },
-  created(){
-      this.test()
+  created() {
+    this.test();
   },
   methods: {
     //  请求comment测试
@@ -146,13 +156,31 @@ export default {
     like(ID, index) {
       this.$axios.get("/zan?ToId=" + ID + "&FromId=" + 10).then((response) => {
         console.log(response.data);
-        if ((response.data.msg == "赞成功")) {
+        if (response.data.msg == "赞成功") {
           //点赞后点赞数+1，无需重新请求
           this.contents[index].LikeNum++;
         }else {
         alert(response.data.msg);
         }
       });
+    },
+    search() {
+      this.$axios
+        .get("/findcomment?keyword=" + this.searchv)
+        .then((response) => {
+          if (response.data) {
+            console.log(response.data);
+            this.contents = [];
+            this.pageNum = 1;
+            this.contents.push(...response.data.msg);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    getReply(ID) {
+      sessionStorage.setItem("commentID", ID);
     },
   },
 };
@@ -175,28 +203,31 @@ export default {
   bottom: 60px;
   right: 20px;
 }
-.play{
-  width:90%;
+.play {
+  width: 90%;
   margin: 0 auto;
 }
-.quit{
- position:absolute;
- top:10px;
- left:10px;
-  width:20px;
+.quit {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 20px;
 }
-.search{
-  background-color:#FCC192;
-  width:90%;
-  height:45px;
-  margin:45px auto;
-  margin-bottom:10px;
+.search {
+  background-color: #fcc192;
+  width: 90%;
+  height: 45px;
+  margin: 45px auto;
+  margin-bottom: 10px;
 }
-.container{
+.container {
   margin: 30px auto;
-  width:90%;
+  width: 90%;
   border-radius: 10px;
-  background-color:#FFFAF6
+  background-color: #fffaf6;
+}
+a{
+  text-decoration: none;
 }
 
 /* 导航栏相关 */
