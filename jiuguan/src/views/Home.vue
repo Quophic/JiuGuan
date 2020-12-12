@@ -1,6 +1,8 @@
 <template>
   <div class="homeBg">
-    
+    <div class="homeTop">
+      <img :src="homeTop" />
+    </div>
     <div class="community">
       <div class="toCommunityBot"></div>
       <div class="toCommunityTop">
@@ -22,7 +24,11 @@
     </div>
     <div class="together">
       <p class="togetherTitle">一起玩</p>
+      <div class="gameTo">
+        <img :src="gameTo">
+      </div>
     </div>
+    <div class="carveLine"></div>
     <div class="chart">
       <p class="chartTitle">酒精排行榜</p>
       <div class="chartBtn">
@@ -30,22 +36,20 @@
           <v-btn block class="toChart" height="150px"></v-btn>
         </a>
       </div>
-      <img class="battery" />
+      <img class="battery" :src="battery"/>
       <div class="point"></div>
     </div>
     <div class="music">
-      <a href="/music">
-        <v-btn height="58px" width="128px" class="toMusic"> </v-btn>
+        <v-btn height="58px" width="128px" class="toMusic"></v-btn>
         <v-icon large class="musicIcon">audiotrack</v-icon>
-      </a>
     </div>
 
     <!-- 底端导航栏 -->
     <div class="bottomNav">
-      <v-bottom-navigation height="44px" v-model="value" class="nav">
+      <v-bottom-navigation color="teal" height="44px" v-model="value" class="nav">
         <a href="/second">
           <v-btn value="second" class="navBtn">
-            <v-icon large>sticky_note_2</v-icon>
+            <v-icon large>stairs</v-icon>
           </v-btn>
         </a>
         <a href="/home">
@@ -65,7 +69,15 @@
 
 <script>
 export default {
-  data: () => ({ value: "home", hole: require("../images/hole.png") })
+  data() {
+    return {
+      value: "home",
+      hole: require("../images/hole.png"),
+      homeTop: require("../images/homeTop.png"),
+      battery: require("../images/battery.png"),
+      gameTo: require("../images/gameTo.png")
+    };
+  }
 };
 </script>
 
@@ -203,6 +215,22 @@ export default {
   opacity: 1;
 }
 
+.gameTo {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;  
+}
+
+.carveLine {
+  position: absolute;
+  top: 357px;
+  left: 28px;
+  width: 314px;
+  height: 0px;
+  border: 2px solid #fff7ea;
+  opacity: 1;
+}
+
 .content {
   position: absolute;
   top: 75px;
@@ -217,14 +245,10 @@ export default {
   opacity: 1;
 }
 
-.line1 {
+.battery {
   position: absolute;
-  left: 28px;
-  top: 351px;
-  width: 314px;
-  height: 0px;
-  border: 3px solid #fff7ea;
-  opacity: 1;
+  right: 15px;
+  bottom: 9px;
 }
 
 .together {
@@ -240,8 +264,8 @@ export default {
 
 .togetherTitle {
   position: absolute;
-  left: 68px;
-  top: 11px;
+  left: 60px;
+  top: 18px;
   width: 78px;
   height: 37px;
   font-size: 26px;
