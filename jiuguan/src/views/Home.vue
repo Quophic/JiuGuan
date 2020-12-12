@@ -24,6 +24,9 @@
     </div>
     <div class="together">
       <p class="togetherTitle">一起玩</p>
+      <div class="gameTo">
+        <img :src="gameTo">
+      </div>
     </div>
     <div class="carveLine"></div>
     <div class="chart">
@@ -37,15 +40,13 @@
       <div class="point"></div>
     </div>
     <div class="music">
-      <a href="/music">
-        <v-btn height="58px" width="128px" class="toMusic"> </v-btn>
+        <v-btn height="58px" width="128px" class="toMusic"></v-btn>
         <v-icon large class="musicIcon">audiotrack</v-icon>
-      </a>
     </div>
 
     <!-- 底端导航栏 -->
     <div class="bottomNav">
-      <v-bottom-navigation height="44px" v-model="value" class="nav">
+      <v-bottom-navigation color="teal" height="44px" v-model="value" class="nav">
         <a href="/second">
           <v-btn value="second" class="navBtn">
             <v-icon large>stairs</v-icon>
@@ -73,7 +74,8 @@ export default {
       value: "home",
       hole: require("../images/hole.png"),
       homeTop: require("../images/homeTop.png"),
-      battery: require("../images/battery.png")
+      battery: require("../images/battery.png"),
+      gameTo: require("../images/gameTo.png")
     };
   }
 };
@@ -213,6 +215,12 @@ export default {
   opacity: 1;
 }
 
+.gameTo {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;  
+}
+
 .carveLine {
   position: absolute;
   top: 357px;
@@ -256,8 +264,8 @@ export default {
 
 .togetherTitle {
   position: absolute;
-  left: 68px;
-  top: 11px;
+  left: 60px;
+  top: 18px;
   width: 78px;
   height: 37px;
   font-size: 26px;
