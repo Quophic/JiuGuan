@@ -117,9 +117,9 @@ export default {
       pageNum: 1,
       search:"",
       items:[
+        {src:require("../images/society1.png")},
         {src:require("../images/society .png")},
-        {src:require("../images/society .png")},
-        {src:require("../images/society .png")},
+        {src:require("../images/society2.png")},
       ],
       
     };
