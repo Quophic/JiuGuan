@@ -8,7 +8,7 @@
       </a>
     </div>
     <div class="search">
-      <v-text-field v-model="search" heght="100" append-icon="mdi-magnify" >
+      <v-text-field v-model="searchv" heght="100" append-icon="mdi-magnify" @keyup.enter="search">
         
       </v-text-field>
     </div>
@@ -26,7 +26,7 @@
         v-for="(item,index) in items"
         :key="index"
         :src="item.src"
-       
+        
         >
 
         </v-carousel-item>
@@ -89,12 +89,13 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
       contents: [],
       pageNum: 1,
-      search:"",
+      searchv:"",
       items:[
         {src:require("../images/society .png")},
         {src:require("../images/society .png")},
@@ -132,6 +133,19 @@ export default {
         alert(response.data.msg);
       });
     },
+    search(){
+      this.$axios.get("/findcomment?keyword="+this.searchv)
+      .then((response)=>{
+        if(response.data){
+          console.log(response.data)
+          this.contents = []
+          this.pageNum = 1
+          this.contents.push(...response.data.msg)
+        }
+      }) .catch((err) => {
+          console.log(err);
+        });
+    }
   },
 };
 </script>
