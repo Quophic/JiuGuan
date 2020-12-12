@@ -64,13 +64,13 @@
                 item.LikeNum
               }}</span>
             </v-btn>
-            <a href="/reply">
+            <a href="/reply" @click="getReply(item.ID)">
               <v-btn
                 text
                 height="30px"
                 width="80px"
                 elevation="0"
-                @click="getReply(item.ID)"
+               
               >
                 <v-icon color="grey">mdi-message-processing-outline</v-icon>
                 <span class="num" v-show="item.ReplyNum" style="color: grey">{{
@@ -158,7 +158,7 @@ export default {
         });
     },
     getReply(ID) {
-      sessionStorage.setItem("commentId", ID);
+      sessionStorage.setItem("commentID", ID);
     },
   },
 };
