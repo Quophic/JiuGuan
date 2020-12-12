@@ -3,6 +3,9 @@
     <div class="background">
       <img :src="startSrc" width="100%" height="100%" alt="" />
     </div>
+    <div class="slogan">
+      <p class="slogan">酒馆，倾诉与倾听的地方</p>
+    </div>
     <div class="button">
       <a href="/login">
         <v-btn
@@ -43,6 +46,16 @@ export default {
 .button {
   width: 30px;
   height: 30px;
+}
+
+.slogan {
+  position: absolute;
+  width: 220px;
+  height: 28px;
+  left: 40px;
+  bottom: 170px;
+  font-size: 20px;
+  color: #FFF3EA;
 }
 
 .background {
