@@ -172,7 +172,7 @@ export default {
 .addNewContent {
   background-color: #611010;
   position: fixed;
-  bottom: 30px;
+  bottom: 60px;
   right: 20px;
 }
 .play{
@@ -201,7 +201,7 @@ export default {
 
 /* 导航栏相关 */
 .bottomNav {
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   width: 375px;
   height: 44px;
