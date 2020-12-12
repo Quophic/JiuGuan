@@ -61,7 +61,7 @@
           <v-tabs-items v-model="tab">
             <v-tab-item v-for="item in items" :key="item.tab">
               <v-card flat>
-                <v-card-text>{{ item.content }}</v-card-text>
+                <v-card-text v-for="(item ,index) in item.content" :key="index">{{ item.a }}</v-card-text>
               </v-card>
             </v-tab-item>
           </v-tabs-items>
@@ -78,9 +78,9 @@ export default {
       userName: sessionStorage.getItem("userName"),
        tab: null,
         items: [
-          { tab: 'One', content: 'Tab 1 Content' },
-          { tab: 'Two', content: 'Tab 2 Content' },
-          { tab: 'Three', content: 'Tab 3 Content' },
+        { tab: '我的发布', content:[{a:'2'},{a:'3'}] },
+          { tab: '我的评论', content: [{a:"2"}] },
+          { tab: '我的成就', content: [{a:'3'}]},
        
         ],
     };
