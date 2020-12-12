@@ -146,7 +146,7 @@ export default {};
 .title {
   position: absolute;
   top: 37px;
-  right: 76px;
+  right: 45px;
   width: 100px;
   height: 22px;
   font-size: 14px;
