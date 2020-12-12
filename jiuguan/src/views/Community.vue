@@ -1,9 +1,11 @@
 <template >
   <div style="background-color:#FFEBDB;">
-    <div class="back">
-      <v-btn>
-        返回
-      </v-btn>
+    <div class="quit">
+      <a href="/home">
+        <v-btn icon color="#E16C6C" class="quitIcon">
+          <v-icon large>keyboard_arrow_left</v-icon>
+        </v-btn>
+      </a>
     </div>
     <div class="search">
       <v-text-field v-model="search" heght="100" append-icon="mdi-magnify" >
@@ -155,16 +157,17 @@ export default {
   width:90%;
   margin: 0 auto;
 }
-.back{
-  margin:10px;
+.quit{
+ position:absolute;
+ top:10px;
+ left:10px;
   width:20px;
-  outline:hidden;
 }
 .search{
   background-color:#FCC192;
   width:90%;
   height:45px;
-  margin:0 auto;
+  margin:45px auto;
   margin-bottom:10px;
 }
 .container{
