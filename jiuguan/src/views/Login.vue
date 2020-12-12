@@ -104,7 +104,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .loginForm {
   position: fixed;
   top: 100px;

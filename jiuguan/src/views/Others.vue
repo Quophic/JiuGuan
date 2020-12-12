@@ -70,7 +70,7 @@ export default {
 };
 </script>
 
-<style>
+<style  scoped>
 h3 {
   position: absolute;
   font-size: 16px;
