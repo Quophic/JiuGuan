@@ -149,8 +149,9 @@ export default {
         if ((response.data.msg == "赞成功")) {
           //点赞后点赞数+1，无需重新请求
           this.contents[index].LikeNum++;
-        }
+        }else {
         alert(response.data.msg);
+        }
       });
     },
   },
