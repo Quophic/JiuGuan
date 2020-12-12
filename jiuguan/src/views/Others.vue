@@ -3,6 +3,13 @@
     <div class="background">
       <img :src="bgImg" width="375px" height="275px" />
     </div>
+        <div class="quit">
+      <a href="/home">
+        <v-btn icon color="#E16C6C" class="quitIcon">
+          <v-icon large>keyboard_arrow_left</v-icon>
+        </v-btn>
+      </a>
+    </div>
     <div class="photoWall">
       <h3>他的照片墙/</h3>
       <p>仅显示对方允许显示的部分</p>
@@ -20,7 +27,30 @@
       </div>
       <div class="some1">125发表</div>
       <div class="some2">102好友</div>
-      <div class="some3">13成就</div>
+      <div class="some3">126成就</div>
+    </div>
+    <div class="masonry">
+      <div class="item">
+        <img :src="img3" />
+      </div>
+      <div class="item">
+        <img :src="img1" />
+      </div>
+      <div class="item">
+        <img :src="img4" />
+      </div>
+      <div class="item">
+        <img src="http://source.unsplash.com/random/200x600" />
+      </div>
+      <div class="item">
+        <img src="http://source.unsplash.com/random/400x400" />
+      </div>
+      <div class="item">
+        <img src="http://source.unsplash.com/random/600x1000" />
+      </div>
+      <div class="item">
+        <img src="http://source.unsplash.com/random/400x600" />
+      </div>
     </div>
   </div>
 </template>
@@ -30,7 +60,11 @@ export default {
   data() {
     return {
       bgImg: require("../images/other-top.png"),
-      avaImg: require("../images/other-head.png")
+      avaImg: require("../images/other-head.png"),
+      img1: require("../images/photo.png"),
+      img2: require("../images/photo1.png"),
+      img3: require("../images/photo2.png"),
+      img4: require("../images/photo3.png")
     };
   }
 };
@@ -38,7 +72,7 @@ export default {
 
 <style>
 h3 {
-  position: fixed;
+  position: absolute;
   font-size: 16px;
   color: #611010;
   top: 385px;
@@ -46,11 +80,27 @@ h3 {
 }
 
 p {
-  position: fixed;
+  position: absolute;
   font-size: 8px;
   color: #611010;
   top: 417px;
   left: 20px;
+}
+
+.quit {
+  position: absolute;
+  left: 25px;
+  top: 55px;
+  width: 28px;
+  height: 28px;
+  box-shadow: 0px 3px 6px rgba(173, 53, 0, 0.16);
+  background-color: #ffffff;
+}
+
+.quitIcon {
+  position: absolute;
+  left: -5px;
+  top: -4px;
 }
 
 .avatar {
@@ -103,14 +153,69 @@ p {
   background-color: #ff7c74;
 }
 
-.some1
-.some2
+.some1,
+.some2,
 .some3 {
-    background-color: red;
-    position: absolute;
-    width: 28px;
-    height: 40px;
-    font-size: 14px;
-    color: #B40000;
+  position: absolute;
+  width: 28px;
+  height: 40px;
+  font-size: 14px;
+  color: #b40000;
+}
+
+.some1 {
+  left: 27px;
+  bottom: 16px;
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 20px;
+  color: #b40000;
+}
+
+.some2 {
+  left: 154px;
+  bottom: 17px;
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 20px;
+  color: #b40000;
+}
+
+.some3 {
+  right: 35px;
+  bottom: 16px;
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 20px;
+  color: #b40000;
+}
+
+.masonry {
+  position: absolute;
+  top: 450px;
+  width: 1440px;
+  margin: 14px 12px;
+  columns: 4;
+  column-gap: 14px;
+}
+
+.item {
+  width: 100%;
+  break-inside: avoid;
+  margin-bottom: 12px;
+}
+
+.item img {
+  width: 100%;
+}
+
+@media screen and (max-width: 767.98px) {
+  .masonry {
+    width: 96vw;
+    columns: 2;
+  }
 }
 </style>
