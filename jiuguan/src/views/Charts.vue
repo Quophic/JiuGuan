@@ -7,14 +7,19 @@
         </v-btn>
       </a>
     </div>
-    <div class="top3"></div>
+    <div class="top3">
+      <img :src="topTop" class="up">
+      <a href="/others">
+        <v-btn height="60px" width="60px" class="toOthers"></v-btn>
+      </a>
+    </div>
     <div class="others">
       <div class="otherList">
-        <p class="Top1">1</p>
-        <p class="Top2">2</p>
-        <p class="Top3">3</p>
-        <p class="Top4">4</p>
-        <p class="Top5">5</p>
+        <p class="Top1">4</p>
+        <p class="Top2">5</p>
+        <p class="Top3">6</p>
+        <p class="Top4">7</p>
+        <p class="Top5">8</p>
         <ul id="ulList">
           <li id="topList" v-for="item in topList" :key="item.id">
             <div class="eachPeople">
@@ -46,6 +51,7 @@
 export default {
   data() {
     return {
+      topTop: require("../images/top3.png"),
       myHead: require("../images/personal-head.png"),
       topList: [],
       myRank: ""
@@ -113,6 +119,19 @@ export default {
   flex-direction: row;
   width: 100px;
   height: 39.5px;
+}
+
+.up {
+  position: absolute;
+  top: 42px;
+  left: 32px;
+}
+
+.toOthers {
+  position: absolute;
+  left: 140px;
+  top: 40px;
+  opacity: 0;
 }
 
 .Top1,

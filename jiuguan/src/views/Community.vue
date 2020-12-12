@@ -96,6 +96,26 @@
         <v-icon color="white" size="50px">mdi-plus</v-icon>
       </v-btn>
     </a>
+        <!-- 底端导航栏 -->
+    <div class="bottomNav">
+      <v-bottom-navigation height="44px" v-model="value" class="nav">
+        <a href="/community">
+          <v-btn value="community" class="navBtn">
+            <v-icon large>sticky_note_2</v-icon>
+          </v-btn>
+        </a>
+        <a href="/home">
+          <v-btn value="home" class="navBtn">
+            <v-icon large>home</v-icon>
+          </v-btn>
+        </a>
+        <a href="/user">
+          <v-btn value="nearby" class="navBtn">
+            <v-icon large>person</v-icon>
+          </v-btn>
+        </a>
+      </v-bottom-navigation>
+    </div>
   </div>
 </template>
 
@@ -103,13 +123,14 @@
 export default {
   data() {
     return {
+      value: "community",
       contents: [],
       pageNum: 1,
-      searchv: "",
-      items: [
-        { src: require("../images/society .png") },
-        { src: require("../images/society .png") },
-        { src: require("../images/society .png") },
+      search:"",
+      items:[
+        {src:require("../images/society1.png")},
+        {src:require("../images/society .png")},
+        {src:require("../images/society2.png")},
       ],
     };
   },
@@ -138,8 +159,9 @@ export default {
         if (response.data.msg == "赞成功") {
           //点赞后点赞数+1，无需重新请求
           this.contents[index].LikeNum++;
-        }
+        }else {
         alert(response.data.msg);
+        }
       });
     },
     search() {
@@ -178,7 +200,7 @@ export default {
 .addNewContent {
   background-color: #611010;
   position: fixed;
-  bottom: 30px;
+  bottom: 60px;
   right: 20px;
 }
 .play {
@@ -207,4 +229,36 @@ export default {
 a{
   text-decoration: none;
 }
+
+/* 导航栏相关 */
+.bottomNav {
+  position: fixed;
+  bottom: 0px;
+  width: 375px;
+  height: 44px;
+  background: #ffffff;
+  box-shadow: 0px -3px 6px rgba(163, 109, 22, 0.16);
+  opacity: 1;
+}
+
+.navBtn {
+  position: absolute;
+  margin-right: 25px;
+}
+
+a:link {
+  text-decoration: none;
+} /* 指正常的未被访问过的链接*/
+
+a:visited {
+  text-decoration: none;
+} /*指已经访问过的链接*/
+
+a:hover {
+  text-decoration: none;
+} /*指鼠标在链接*/
+
+a:active {
+  text-decoration: none;
+} /* 指正在点的链接*/
 </style>

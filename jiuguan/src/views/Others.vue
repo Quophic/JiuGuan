@@ -4,7 +4,7 @@
       <img :src="bgImg" width="375px" height="275px" />
     </div>
     <div class="quit">
-      <a href="/home">
+      <a href="/charts">
         <v-btn icon color="#E16C6C" class="quitIcon">
           <v-icon large>keyboard_arrow_left</v-icon>
         </v-btn>
@@ -40,16 +40,31 @@
         <img :src="img4" />
       </div>
       <div class="item">
-        <img src="http://source.unsplash.com/random/200x600" />
+        <img :src="img2" />
       </div>
       <div class="item">
-        <img src="http://source.unsplash.com/random/400x400" />
+        <img :src="img3" />
       </div>
       <div class="item">
-        <img src="http://source.unsplash.com/random/600x1000" />
+        <img :src="img4" />
       </div>
       <div class="item">
-        <img src="http://source.unsplash.com/random/400x600" />
+        <img :src="img5" />
+      </div>
+      <div class="item">
+        <img :src="img6" />
+      </div>
+      <div class="item">
+        <img :src="img7" />
+      </div>
+      <div class="item">
+        <img :src="img8" />
+      </div>
+      <div class="item">
+        <img :src="img9" />
+      </div>
+      <div class="item">
+        <img :src="img10" />
       </div>
     </div>
   </div>
@@ -64,13 +79,19 @@ export default {
       img1: require("../images/photo.png"),
       img2: require("../images/photo1.png"),
       img3: require("../images/photo2.png"),
-      img4: require("../images/photo3.png")
+      img4: require("../images/photo3.png"),
+      img5: require("../images/photo4.png"),
+      img6: require("../images/photo5.png"),
+      img7: require("../images/photo6.png"),
+      img8: require("../images/photo7.png"),
+      img9: require("../images/photo8.png"),
+      img10: require("../images/photo9.png")
     };
   }
 };
 </script>
 
-<style  scoped>
+<style scoped>
 h3 {
   position: absolute;
   font-size: 16px;
