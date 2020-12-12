@@ -45,7 +45,7 @@
       <v-bottom-navigation height="44px" v-model="value" class="nav">
         <a href="/second">
           <v-btn value="second" class="navBtn">
-            <v-icon large>sticky_note_2</v-icon>
+            <v-icon large>stairs</v-icon>
           </v-btn>
         </a>
         <a href="/home">
