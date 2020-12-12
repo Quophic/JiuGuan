@@ -3,7 +3,7 @@
     <div class="background">
       <img :src="bgImg" width="375px" height="275px" />
     </div>
-        <div class="quit">
+    <div class="quit">
       <a href="/home">
         <v-btn icon color="#E16C6C" class="quitIcon">
           <v-icon large>keyboard_arrow_left</v-icon>
