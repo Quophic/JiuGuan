@@ -67,6 +67,7 @@ export default {
     sendContent() {
       if (this.newContent.match(/[\S]/) == null  ) {
         this.placeHolder = "禁止输入为空";
+        alert("输入框不得为空");
       } else if(this.newContent.length <= 200) {
         console.log(this.newContent);
         this.$axios
@@ -79,8 +80,10 @@ export default {
               sessionStorage.getItem("userName")
           )
           .then((response) => {
+            console.log(response);
             console.log(response.data);
-            alert(response.data.msg);
+            // alert(response.data.msg);
+            this.$router.push("/community");
           });
 
         this.newContent = ""; 

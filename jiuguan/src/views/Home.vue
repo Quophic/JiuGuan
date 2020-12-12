@@ -3,7 +3,11 @@
     
     <div class="community">
       <div class="toCommunityBot"></div>
-      <div class="toCommunityTop"></div>
+      <div class="toCommunityTop">
+        <div class="hole">
+          <img :src="hole" />
+        </div>
+      </div>
       <div class="toCommunityBtn">
         <a href="/community">
           <v-btn height="140px" width="120px" class="toBtn"></v-btn>
@@ -31,14 +35,38 @@
     </div>
     <div class="music">
       <a href="/music">
-        <v-btn height="58px" width="128px" class="toMusic"></v-btn>
+        <v-btn height="58px" width="128px" class="toMusic"> </v-btn>
+        <v-icon large class="musicIcon">audiotrack</v-icon>
       </a>
+    </div>
+
+    <!-- 底端导航栏 -->
+    <div class="bottomNav">
+      <v-bottom-navigation height="44px" v-model="value" class="nav">
+        <a href="/community">
+          <v-btn value="community" class="navBtn">
+            <v-icon large>sticky_note_2</v-icon>
+          </v-btn>
+        </a>
+        <a href="/home">
+          <v-btn value="home" class="navBtn">
+            <v-icon large>home</v-icon>
+          </v-btn>
+        </a>
+        <a href="/user">
+          <v-btn value="nearby" class="navBtn">
+            <v-icon large>person</v-icon>
+          </v-btn>
+        </a>
+      </v-bottom-navigation>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => ({ value: "home", hole: require("../images/hole.png") })
+};
 </script>
 
 <style>
@@ -100,6 +128,14 @@ export default {};
   background: #fcf0d5;
   box-shadow: 0px 3px 6px rgba(188, 130, 130, 0.16);
   border-radius: 11px;
+}
+
+.hole {
+  position: absolute;
+  left: 25px;
+  top: -8px;
+  height: 20px;
+  width: 10px;
 }
 
 .toCommunityBot {
@@ -279,4 +315,41 @@ export default {};
   opacity: 0;
 }
 
+.musicIcon {
+  position: fixed;
+  right: -40px;
+  bottom: 45px;
+}
+
+/* 导航栏相关 */
+.bottomNav {
+  position: absolute;
+  bottom: 0px;
+  width: 375px;
+  height: 44px;
+  background: #ffffff;
+  box-shadow: 0px -3px 6px rgba(163, 109, 22, 0.16);
+  opacity: 1;
+}
+
+.navBtn {
+  position: absolute;
+  margin-right: 25px;
+}
+
+a:link {
+  text-decoration: none;
+} /* 指正常的未被访问过的链接*/
+
+a:visited {
+  text-decoration: none;
+} /*指已经访问过的链接*/
+
+a:hover {
+  text-decoration: none;
+} /*指鼠标在链接*/
+
+a:active {
+  text-decoration: none;
+} /* 指正在点的链接*/
 </style>
