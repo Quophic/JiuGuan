@@ -7,7 +7,11 @@
     </div>
     <div class="community">
       <div class="toCommunityBot"></div>
-      <div class="toCommunityTop"></div>
+      <div class="toCommunityTop">
+        <div class="hole">
+          <img :src="hole" />
+        </div>
+      </div>
       <div class="toCommunityBtn">
         <a href="/community">
           <v-btn height="140px" width="120px" class="toBtn"></v-btn>
@@ -35,7 +39,8 @@
     </div>
     <div class="music">
       <a href="/music">
-        <v-btn height="58px" width="128px" class="toMusic"></v-btn>
+        <v-btn height="58px" width="128px" class="toMusic"> </v-btn>
+        <v-icon large class="musicIcon">audiotrack</v-icon>
       </a>
     </div>
     <div class="line1"></div>
@@ -65,7 +70,7 @@
 
 <script>
 export default {
-  data: () => ({ value: "home" })
+  data: () => ({ value: "home", hole: require("../images/hole.png") })
 };
 </script>
 
@@ -128,6 +133,14 @@ export default {
   background: #fcf0d5;
   box-shadow: 0px 3px 6px rgba(188, 130, 130, 0.16);
   border-radius: 11px;
+}
+
+.hole {
+  position: absolute;
+  left: 25px;
+  top: -8px;
+  height: 20px;
+  width: 10px;
 }
 
 .toCommunityBot {
@@ -305,6 +318,12 @@ export default {
 
 .toMusic {
   opacity: 0;
+}
+
+.musicIcon {
+  position: fixed;
+  right: -40px;
+  bottom: 45px;
 }
 
 /* 导航栏相关 */
