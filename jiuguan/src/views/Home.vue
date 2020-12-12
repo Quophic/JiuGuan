@@ -10,7 +10,7 @@
       <div class="toCommunityTop"></div>
       <div class="toCommunityBtn">
         <a href="/community">
-          <v-btn large class="toBtn"></v-btn>
+          <v-btn height="140px" width="120px" class="toBtn"></v-btn>
           <p class="com">论坛</p>
         </a>
       </div>
@@ -77,10 +77,16 @@ export default {};
   border-radius: 50%;
 }
 
+.quitIcon {
+  position: absolute;
+  left: -5px;
+  top: -4px;
+}
+
 .com {
   position: absolute;
   top: 73px;
-  left: 90px;
+  left: 70px;
   width: 20px;
   height: 56px;
   font-size: 20px;
@@ -125,8 +131,8 @@ export default {};
 
 .toBtn {
   position: absolute;
-  left: 45px;
-  top: 80px;
+  left: 20px;
+  top: 30px;
   height: 70px;
   widows: 70px;
   opacity: 0;
@@ -146,7 +152,7 @@ export default {};
 .title {
   position: absolute;
   top: 37px;
-  right: 76px;
+  right: 45px;
   width: 100px;
   height: 22px;
   font-size: 14px;
