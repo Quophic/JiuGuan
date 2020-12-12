@@ -1,17 +1,13 @@
 <template>
   <div class="homeBg">
-    <div class="quitbtn">
-      <v-btn icon color="#E16C6C" class="quitIcon">
-        <v-icon large>keyboard_arrow_left</v-icon>
-      </v-btn>
-    </div>
+    
     <div class="community">
       <div class="toCommunityBot"></div>
       <div class="toCommunityTop"></div>
       <div class="toCommunityBtn">
         <a href="/community">
           <v-btn height="140px" width="120px" class="toBtn"></v-btn>
-          <p class="com">论坛</p>
+          <p class="com">留言板</p>
         </a>
       </div>
     </div>
@@ -38,8 +34,6 @@
         <v-btn height="58px" width="128px" class="toMusic"></v-btn>
       </a>
     </div>
-    <div class="line1"></div>
-    <p class="date">12/13 星期日</p>
   </div>
 </template>
 
