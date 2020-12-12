@@ -1,6 +1,8 @@
 <template>
   <div class="homeBg">
-    
+    <div class="homeTop">
+      <img :src="homeTop" />
+    </div>
     <div class="community">
       <div class="toCommunityBot"></div>
       <div class="toCommunityTop">
@@ -23,6 +25,7 @@
     <div class="together">
       <p class="togetherTitle">一起玩</p>
     </div>
+    <div class="carveLine"></div>
     <div class="chart">
       <p class="chartTitle">酒精排行榜</p>
       <div class="chartBtn">
@@ -65,7 +68,13 @@
 
 <script>
 export default {
-  data: () => ({ value: "home", hole: require("../images/hole.png") })
+  data() {
+    return {
+      value: "home",
+      hole: require("../images/hole.png"),
+      homeTop: require("../images/homeTop.png")
+    };
+  }
 };
 </script>
 
@@ -200,6 +209,16 @@ export default {
   width: 64px;
   height: 0px;
   border: 1px solid #dedede;
+  opacity: 1;
+}
+
+.carveLine {
+  position: absolute;
+  top: 357px;
+  left: 28px;
+  width: 314px;
+  height: 0px;
+  border: 2px solid #fff7ea;
   opacity: 1;
 }
 
