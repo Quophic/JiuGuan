@@ -34,6 +34,12 @@
       </v-carousel>
     </div>
     <div class="container">
+
+      <div>
+        <div class="text">
+          留言
+        </div>
+      </div>
       <v-card
         style="margin: 15px 3px; background-color: #fff2d8"
         v-for="(item, index) in contents"
@@ -204,7 +210,7 @@ export default {
   right: 20px;
 }
 .play {
-  width: 90%;
+  width: 91%;
   margin: 0 auto;
 }
 .quit {
@@ -215,14 +221,14 @@ export default {
 }
 .search {
   background-color: #fcc192;
-  width: 90%;
+  width: 87%;
   height: 45px;
   margin: 45px auto;
   margin-bottom: 10px;
 }
 .container {
-  margin: 30px auto;
-  width: 90%;
+  margin: 20px auto;
+  width: 87%;
   border-radius: 10px;
   background-color: #fffaf6;
 }
@@ -239,6 +245,15 @@ a{
   background: #ffffff;
   box-shadow: 0px -3px 6px rgba(163, 109, 22, 0.16);
   opacity: 1;
+}
+.text{
+  width:74px;
+  height:25px;
+  border-radius:10px;
+  background-color:#F8D4CC;
+  color:#D96D6D;
+ 
+  text-align:center;
 }
 
 .navBtn {
