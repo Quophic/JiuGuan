@@ -1,69 +1,34 @@
 <template>
   <div>
-    <h1>nmsl</h1>
-    <h2>{{ this.percent }}</h2>
+    <div class="loading">
+      <img :src="loading" width="100%" height="100%">
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {
-      count: 0,
-      percent: '',
+    return{
+      loading: require("../images/loading.jpg"),
+      timer: '',
+      value: 0
     };
   },
-
-  mounted: function() {
-    this.preload();
-  },
-
   methods: {
-    preload: function() {
-      let imgs = [
-        "static/img/other-head.png",
-        "static/img/other-top.png",
-        "static/img/others-head.png",
-        "static/img/personal-head.png",
-        "static/img/perisonal-top.png",
-        "static/img/charts1.png",
-        "static/img/charts2.png",
-        "static/img/charts3.png",
-        "static/img/game.png",
-        "static/img/loading.png",
-        "static/img/photo.png",
-        "static/img/photo1.png",
-        "static/img/photo2.png",
-        "static/img/photo3.png",
-        "static/img/review1.png",
-        "static/img/review2.png",
-        "static/img/review3.png",
-        "static/img/society.png"
-      ];
-
-      for (let img of imgs) {
-        let image = new Image();
-        image.src = img;
-        image.onload = () => {
-          this.count++;
-          // 计算图片加载的百分数，绑定到percent变量
-          let percentNum = Math.floor((this.count / 14) * 100);
-          this.percent = `${percentNum}%`;
-        };
-      }
+    go() {
+      this.$router.push({path:'/home'})
     }
   },
-
-  watch: {
-    count: function(val) {
-      console.log(val);
-      if (val === 18) {
-        // 图片加载完成后跳转页面
-        this.$router.push("/home");
-      }
-    }
+  mounted() {
+    this.timer = setTimeout(this.go, 3000);
+  },
+  beforeDestroy() {
+    clearTimeout(this.timer)
   }
-};
+}
 </script>
 
-<style></style>
+<style>
+
+</style>

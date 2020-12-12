@@ -85,7 +85,9 @@ export default {
         alert("账号密码不能为空");
       } else if (this.password !== this.repeat) {
         alert("输入的密码不一致");
-      } else {
+      } else if (this.password.length < 8) {
+        alert("请输入正确的密码");
+      }else {
         console.log("准备发送请求");
         this.$axios
           .get(
@@ -93,9 +95,9 @@ export default {
           )
           .then(function(res) {
             // console.log("good job");
-            console.log(res); //注册有检验用户名是否存在，但是没有特定的状态码，如果有状态码就可以根据返回的状态码进行弹窗提醒
             that.$router.push("/loading"); //成功之后跳转到登录成功后的界面
             console.log("注册成功");
+
           });
       }
     }

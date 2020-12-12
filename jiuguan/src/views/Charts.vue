@@ -23,14 +23,15 @@
       </div>
     </div>
     <div class="bot">
-        <div class="myName">
-            
-        </div>
-      <div class="myRank">
-        {{ myRank }}
+      <div class="myName">
+        {{ myName }}
       </div>
+      <div class="myRank">NO.{{ myRank }}</div>
       <div class="myAlco">
-          {{ myAlcohol }}
+        {{ myAlcohol }}
+      </div>
+      <div class="myImg">
+          <img :src="myHead" width="40px" height="40px">
       </div>
     </div>
   </div>
@@ -40,8 +41,9 @@
 export default {
   data() {
     return {
+    myHead: require("../images/personal-head.png"),
       topList: [],
-      myRank: ''
+      myRank: ""
     };
   },
   created() {
@@ -50,12 +52,18 @@ export default {
   methods: {
     convert: function() {
       var that = this; //保留this
-      this.$axios.get("/getrank?PageSize=5&PageNum=1&UserId=" + sessionStorage.getItem("userID")).then(function(res) {
-        console.log(res);
-        that.topList = res.data.date;
-        that.myRank = res.data.rank;
-        that.myAlcohol = res.data.alcohol
-      });
+      this.$axios
+        .get(
+          "/getrank?PageSize=5&PageNum=1&UserId=" +
+            sessionStorage.getItem("userID")
+        )
+        .then(function(res) {
+          console.log(res);
+          that.topList = res.data.date;
+          that.myRank = res.data.rank;
+          that.myAlcohol = res.data.alcohol;
+          that.myName = sessionStorage.getItem("userName");
+        });
     }
   }
 };
@@ -67,11 +75,6 @@ export default {
   width: 100%;
   background-color: #ffefe5;
 }
-
-/* ul {
-    display: flex;
-    flex-direction: row;
-} */
 
 .top {
   margin-top: 24px;
@@ -148,6 +151,45 @@ export default {
   width: 375px;
   background-color: #ffffff;
   box-shadow: 0px -3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.myImg {
+    position: absolute;
+    left: 18px;
+    bottom: 2px;
+}
+
+.myName {
+  position: absolute;
+  left: 80px;
+  bottom: 19px;
+  font-size: 15px;
+  font-family: Impact;
+  font-weight: 400;
+  line-height: 18px;
+  color: #611010;
+}
+
+.myRank {
+  position: absolute;
+  right: 24px;
+  bottom: 19px;
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 500;
+  line-height: 20px;
+  color: #611010;
+}
+
+.myAlco {
+  position: absolute;
+  bottom: 19px;
+  right: 92px;
+  font-size: 14px;
+  font-family: PingFang SC;
+  font-weight: 500;
+  line-height: 20px;
+  color: #611010;
 }
 
 li {
