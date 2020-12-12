@@ -18,13 +18,7 @@
             {{ userName }}
           </span>
           <span class="happy">
-            HAPPY EVERYDAY<v-btn
-              height="24px"
-              text
-              class="rounded-pill changeName"
-            >
-              改变昵称</v-btn
-            >
+            HAPPY EVERYDAY
           </span>
 
           <v-card-actions class="action">
@@ -32,14 +26,14 @@
               class="rounded-pill"
               width="120px"
               height="35px"
-              color="#FFD7D5"
+              color="#FFE1D8"
               ><span style="color: #e95a5a">likes</span>
             </v-btn>
             <v-btn
               class="rounded-pill"
               width="120px"
               height="35px"
-              color="#FFD7D5"
+              color="#FFE1D8"
               ><span style="color: #e95a5a">friends</span></v-btn
             >
           </v-card-actions>
@@ -119,6 +113,7 @@ a {
 .center {
   width: 86%;
   margin: 0 auto;
+  margin-top:30px;
 }
 .between {
   margin: 10px 0;
@@ -126,6 +121,8 @@ a {
 .user {
   padding: 30px 20px;
   background-color: #fffaf6;
+  height:166px;
+  width:335px
 }
 .userName {
   width: 100px;
@@ -140,9 +137,10 @@ a {
   position: absolute;
   top: 70px;
   left: 120px;
+ 
 }
 .action {
-  margin-top: 20px;
+  margin-top: 8px;
   margin-left: 4%;
 }
 .money {
