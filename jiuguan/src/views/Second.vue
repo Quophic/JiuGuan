@@ -1,5 +1,6 @@
 <template>
-  <div >
+  <div class="Second">
+    <div class="sorry">二楼正在装修中...</div>
         <!-- 底端导航栏 -->
     <div class="bottomNav">
       <v-bottom-navigation height="44px" v-model="value" class="nav">
@@ -30,5 +31,19 @@ export default {
 </script>
 
 <style>
+
+.Second {
+  background-color: #FFF4E3;
+  height: 100%;
+  width: 100%;
+}
+
+.sorry {
+  position: absolute;
+  left: 98px;
+  top: 230px;
+  font-size: 20px;
+  color: #D96D6D;
+}
 
 </style>
