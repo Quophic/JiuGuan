@@ -81,10 +81,13 @@ export default {
             console.log(res.data);
 
             that.userToken = res.data.token;
+            // console.log(res.data.token);
             // that.userToken = "Bearer " + res.data.token;
             //sessionStorage.getItem("userID")
-            sessionStorage.setItem("userID",res.data.s.ID)
-            sessionStorage.setItem("userName",res.data.s.UserName)
+            // console.log(res.data.data.ID)
+            // console.log(res.data.data.UserName)
+            sessionStorage.setItem("userID",res.data.data.ID)
+            sessionStorage.setItem("userName",res.data.data.UserName)
             
 
             // console.log(that.userToken)
