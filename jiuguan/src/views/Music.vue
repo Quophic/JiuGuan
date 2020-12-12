@@ -13,6 +13,10 @@
     <div class="p3" @click="left"><v-img :src="music[2].src"></v-img></div>
     <!-- 图片大小不一样，看起来额 -->
     <div class="name">{{ music[1].name }}</div>
+
+    <div>
+      <audio :src="music[1].musicSrc" autoplay con></audio>
+    </div>
   </div>
 </template>
 
@@ -21,9 +25,21 @@ export default {
   data() {
     return {
       music: [
-        { src: require("../images/photo1.png"), name: "海浪" },
-        { src: require("../images/photo2.png"), name: "舒缓" },
-        { src: require("../images/photo.png"), name: "雨声" },
+        {
+          src: require("../images/photo1.png"),
+          name: "海浪",
+          musicSrc: require("../musics/song.mp3"),
+        },
+        {
+          src: require("../images/photo2.png"),
+          name: "舒缓",
+          musicSrc: require("../musics/song.mp3"),
+        },
+        {
+          src: require("../images/photo.png"),
+          name: "雨声",
+          musicSrc: require("../musics/song.mp3"),
+        },
       ],
       a: 0,
     };
@@ -83,10 +99,10 @@ export default {
 a {
   text-decoration: none;
 }
-.quit{
+.quit {
   position: absolute;
-  top:30px;
-  left:20px
+  top: 30px;
+  left: 20px;
 }
 </style>
 
