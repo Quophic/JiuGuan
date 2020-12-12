@@ -95,7 +95,7 @@ export default {
           )
           .then(function(res) {
             // console.log("good job");
-            that.$router.push("/loading"); //成功之后跳转到登录成功后的界面
+            that.$router.push("/login"); //成功之后跳转到登录界面
             console.log("注册成功");
 
           });
