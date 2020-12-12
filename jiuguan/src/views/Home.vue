@@ -48,8 +48,8 @@
     <!-- 底端导航栏 -->
     <div class="bottomNav">
       <v-bottom-navigation height="44px" v-model="value" class="nav">
-        <a href="/community">
-          <v-btn value="community" class="navBtn">
+        <a href="/second">
+          <v-btn value="second" class="navBtn">
             <v-icon large>sticky_note_2</v-icon>
           </v-btn>
         </a>

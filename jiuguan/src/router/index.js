@@ -13,6 +13,7 @@ import Others from '../views/Others.vue'
 import AddContent from '../views/AddContent.vue'
 import User from '../views/User.vue'
 import Reply from '../views/Reply.vue'
+import Second from '../views/Second.vue'
 
 Vue.use(VueRouter)
 
@@ -79,6 +80,11 @@ const routes = [
     path: '/reply',
     name: 'Reply',
     component: Reply
+  },
+  {
+    path: '/second',
+    name: 'Second',
+    component: Second
   }
 ]
 
