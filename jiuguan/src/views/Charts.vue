@@ -10,6 +10,11 @@
     <div class="top3"></div>
     <div class="others">
       <div class="otherList">
+        <p class="Top1">1</p>
+        <p class="Top2">2</p>
+        <p class="Top3">3</p>
+        <p class="Top4">4</p>
+        <p class="Top5">5</p>
         <ul id="ulList">
           <li id="topList" v-for="item in topList" :key="item.id">
             <div class="eachPeople">
@@ -31,7 +36,7 @@
         {{ myAlcohol }}
       </div>
       <div class="myImg">
-          <img :src="myHead" width="40px" height="40px">
+        <img :src="myHead" width="40px" height="40px" />
       </div>
     </div>
   </div>
@@ -41,7 +46,7 @@
 export default {
   data() {
     return {
-    myHead: require("../images/personal-head.png"),
+      myHead: require("../images/personal-head.png"),
       topList: [],
       myRank: ""
     };
@@ -69,7 +74,7 @@ export default {
 };
 </script>
 
-<style  scoped>
+<style scoped>
 .charts {
   height: 100%;
   width: 100%;
@@ -108,6 +113,40 @@ export default {
   flex-direction: row;
   width: 100px;
   height: 39.5px;
+}
+
+.Top1,
+.Top2,
+.Top3,
+.Top4,
+.Top5 {
+  position: fixed;
+  width: 8px;
+  height: 20px;
+    left: 68px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-family: PingFang SC;
+  font-weight: 500;
+  line-height: 20px;
+  color: #611010;
+  opacity: 1;
+}
+
+.Top2 {
+  bottom: 220px;
+}
+
+.Top3 {
+  bottom: 160px;
+}
+
+.Top4 {
+  bottom: 100px;
+}
+
+.Top5 {
+  bottom: 40px;
 }
 
 #ulList {
@@ -154,9 +193,9 @@ export default {
 }
 
 .myImg {
-    position: absolute;
-    left: 18px;
-    bottom: 2px;
+  position: absolute;
+  left: 18px;
+  bottom: 2px;
 }
 
 .myName {
