@@ -40,7 +40,9 @@
         <input type="text" v-model="reply" />
       </div>
 
-      <v-btn @click="sendReply" height="20px" color="#F58C8C" class="text">发送</v-btn>
+      <v-btn @click="sendReply" height="20px" color="#F58C8C" class="text"
+        >发送</v-btn
+      >
     </div>
   </div>
 </template>
@@ -71,15 +73,16 @@ export default {
         .then((response) => {
           if (response.data) {
             console.log(response.data);
-            this.userName = response.data.comment.FromName
+            this.userName = response.data.comment.FromName;
             this.comment = response.data.comment;
             // console.log( this.comment.Content.length)
-            if( this.comment.Content.length >= 20){
+            if (this.comment.Content.length >= 20) {
               // console.log(this.comment)
-              this.comment.Content = this.comment.Content.slice(0,19).concat("......")
+              this.comment.Content = this.comment.Content.slice(0, 19).concat(
+                "......"
+              );
             }
             this.replies.push(...response.data.date);
-
           }
         })
         .catch((err) => {
@@ -105,9 +108,8 @@ export default {
           .then((response) => {
             console.log(response);
             this.reply = "";
-            this.replies =[]
-            this.getReply()
-            
+            this.replies = [];
+            this.getReply();
           });
       } else {
         this.placeHolder = "还有话说吗？";
@@ -217,7 +219,7 @@ a {
   color: #611010;
   opacity: 1;
 }
-.text{
-  color:white
+.text {
+  color: white;
 }
 </style>
