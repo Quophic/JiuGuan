@@ -41,6 +41,9 @@
       </div>
       <div class="between">
         <v-card height="80px" color="#FFE2C7">
+          <div class="moneyIcon">
+            <v-icon large>attach_money</v-icon>
+          </div>
           <span class="money">1210.20</span>
         </v-card>
       </div>
@@ -117,6 +120,11 @@ a {
 }
 .between {
   margin: 10px 0;
+}
+.moneyIcon {
+  position: absolute;
+  top: 30%;
+  left: 20%;
 }
 .user {
   padding: 30px 20px;
