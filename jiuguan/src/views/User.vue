@@ -125,7 +125,7 @@ a {
   width:335px
 }
 .userName {
-  width: 100px;
+  width: 200px;
   font-size: 24px;
   position: absolute;
   top: 30px;
