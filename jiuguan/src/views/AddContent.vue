@@ -60,13 +60,13 @@ export default {
   data() {
     return {
       newContent: "",
-      placeHolder: "",
+      placeHolder: "说点什么？（暂不支持表情）",
     };
   },
   methods: {
     sendContent() {
       if (this.newContent.match(/[\S]/) == null  ) {
-        this.placeHolder = "禁止输入为空";
+        this.placeHolder = "禁止输入为空（暂不支持表情）";
         alert("输入框不得为空");
       } else if(this.newContent.length <= 200) {
         console.log(this.newContent);
@@ -87,7 +87,7 @@ export default {
           });
 
         this.newContent = ""; 
-        this.placeHolder = "说点什么吧？";
+        this.placeHolder = "说点什么吧？（暂不支持表情）";
       }else{
         alert("字数超出限制")
       }
