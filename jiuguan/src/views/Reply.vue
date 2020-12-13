@@ -53,7 +53,7 @@ export default {
       comment: {},
       reply: "",
       placeHolder: "有什么意见吗？",
-      userName: sessionStorage.getItem("userName"),
+      userName: "",
     };
   },
   created() {
@@ -71,8 +71,10 @@ export default {
         .then((response) => {
           if (response.data) {
             console.log(response.data);
+            this.userName = response.data.comment.FromName
             this.comment = response.data.comment;
             this.replies.push(...response.data.date);
+
           }
         })
         .catch((err) => {
