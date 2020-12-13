@@ -103,8 +103,6 @@ export default {
 
 .quitIcon {
   position: absolute;
-  left: 20px;
-  top: 51px;
 }
 
 .eachPeople {
