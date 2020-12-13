@@ -139,7 +139,7 @@ export default {
         });
     },
     like(ID, index) {
-      this.$axios.get("/zan?ToId=" + ID + "&FromId=" + 10).then((response) => {
+      this.$axios.post("/zan?ToId=" + ID + "&FromId=" + 10).then((response) => {
         console.log(response.data);
         if (response.data.msg == "赞成功") {
           //点赞后点赞数+1，无需重新请求
