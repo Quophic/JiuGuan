@@ -151,19 +151,19 @@ export default {
 }
 
 .Top2 {
-  bottom: 220px;
-}
-
-.Top3 {
   bottom: 160px;
 }
 
-.Top4 {
+.Top3 {
   bottom: 100px;
 }
 
+.Top4 {
+  bottom: 45px;
+}
+
 .Top5 {
-  bottom: 40px;
+  bottom: -15px;
 }
 
 #ulList {
