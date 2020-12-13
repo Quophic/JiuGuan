@@ -41,7 +41,7 @@
     </div>
     <div class="music">
         <v-btn height="58px" width="128px" class="toMusic"></v-btn>
-        <v-icon large class="musicIcon">audiotrack</v-icon>
+        <v-icon large class="musicIcon" @click="playMusic">audiotrack</v-icon>
     </div>
 
     <!-- 底端导航栏 -->
@@ -68,6 +68,8 @@
 </template>
 
 <script>
+import {play}  from '../musics/playMusic.js'
+
 export default {
   data() {
     return {
@@ -77,6 +79,14 @@ export default {
       battery: require("../images/battery.png"),
       gameTo: require("../images/gameTo.png")
     };
+  },
+  created(){
+    this.playMusic()
+  },
+  methods:{
+    playMusic(){
+      play()
+    }
   }
 };
 </script>
