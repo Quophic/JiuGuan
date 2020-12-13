@@ -105,6 +105,9 @@ export default {
           .then((response) => {
             console.log(response);
             this.reply = "";
+            this.replies =[]
+            this.getReply()
+            
           });
       } else {
         this.placeHolder = "还有话说吗？";
