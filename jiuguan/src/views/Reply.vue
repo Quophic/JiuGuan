@@ -62,7 +62,7 @@ export default {
   methods: {
     getReply() {
       this.$axios
-        .get(
+        .post(
           "/getreply?CommentId=" +
             sessionStorage.getItem("commentID") +
             "&PageSize=100" +
@@ -91,7 +91,7 @@ export default {
         this.placeHolder = "禁止输入为空";
       } else if (this.reply.length <= 500) {
         this.$axios
-          .get(
+          .post(
             "/upreply?Content=" +
               this.reply +
               "&FromName=" +

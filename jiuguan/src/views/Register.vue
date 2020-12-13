@@ -90,7 +90,7 @@ export default {
       }else {
         console.log("准备发送请求");
         this.$axios
-          .get(
+          .post(
             "/register?username=" + this.username + "&password=" + this.password
           )
           .then(function(res) {

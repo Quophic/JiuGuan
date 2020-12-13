@@ -64,7 +64,7 @@ export default {
     convert: function() {
       var that = this; //保留this
       this.$axios
-        .get(
+        .post(
           "/getrank?PageSize=5&PageNum=1&UserId=" +
             sessionStorage.getItem("userID")
         )

@@ -71,7 +71,7 @@ export default {
       } else if(this.newContent.length <= 200) {
         console.log(this.newContent);
         this.$axios
-          .get(
+          .post(
             "/upcomment?Content=" +
               this.newContent +
               "&FromId=" +

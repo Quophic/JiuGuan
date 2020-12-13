@@ -127,7 +127,7 @@ export default {
     test() {
       //当contents被清空时，pageNum要赋值为1
       this.$axios
-        .get("/getcommentbytime?PageSize=20&PageNum=" + this.pageNum++)
+        .post("/getcommentbytime?PageSize=20&PageNum=" + this.pageNum++)
         .then((response) => {
           if (response.data) {
             console.log(response.data.date);
@@ -151,7 +151,7 @@ export default {
     },
     search() {
       this.$axios
-        .get("/findcomment?keyword=" + this.searchv)
+        .post("/findcomment?keyword=" + this.searchv)
         .then((response) => {
           if (response.data) {
             console.log(response.data);

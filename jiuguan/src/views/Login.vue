@@ -75,7 +75,7 @@ export default {
       } 
       else {
         this.$axios
-          .get("/autoin?username=" + that.username + "&password=" + that.password)
+          .post("/autoin?username=" + that.username + "&password=" + that.password)
           .then(function(res) {
             console.log("顺利运行");
             console.log(res.data);
