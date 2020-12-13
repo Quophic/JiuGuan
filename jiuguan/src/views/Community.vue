@@ -111,7 +111,7 @@ export default {
     return {
       contents: [],
       pageNum: 1,
-      search:"",
+      searchv:"",
       items:[
         {src:require("../images/society1.png")},
         {src:require("../images/society .png")},
@@ -157,7 +157,7 @@ export default {
             console.log(response.data);
             this.contents = [];
             this.pageNum = 1;
-            this.contents.push(...response.data.msg);
+            this.contents.push(...response.data.data);
           }
         })
         .catch((err) => {
