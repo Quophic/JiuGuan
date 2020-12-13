@@ -73,6 +73,11 @@ export default {
             console.log(response.data);
             this.userName = response.data.comment.FromName
             this.comment = response.data.comment;
+            // console.log( this.comment.Content.length)
+            if( this.comment.Content.length >= 20){
+              // console.log(this.comment)
+              this.comment.Content = this.comment.Content.slice(0,19).concat("......")
+            }
             this.replies.push(...response.data.date);
 
           }
@@ -99,7 +104,6 @@ export default {
           )
           .then((response) => {
             console.log(response);
-
             this.reply = "";
           });
       } else {
