@@ -1,7 +1,7 @@
 <template>
   <div class="homeBg">
     <div class="homeTop">
-      <img :src="homeTop" />
+      <img :src="homeTop" width="100%" height="100%"/>
     </div>
     <div class="community">
       <div class="toCommunityBot"></div>
@@ -143,7 +143,7 @@ export default {
 
 .community {
   position: absolute;
-  top: 121px;
+  top: 22%;
   left: 20px;
   width: 335px;
   height: 202px;
@@ -162,7 +162,7 @@ export default {
 
 .toCommunityBot {
   position: absolute;
-  top: 32px;
+  top: 20%;
   left: 21px;
   width: 124px;
   height: 142px;
@@ -172,7 +172,7 @@ export default {
 
 .toCommunityTop {
   position: absolute;
-  top: 32px;
+  top: 21%;
   left: 18px;
   width: 124px;
   height: 142px;
@@ -192,7 +192,7 @@ export default {
 
 .everyday {
   position: absolute;
-  top: 136px;
+  top: 25%;
   left: 179px;
   width: 163px;
   height: 173px;
@@ -359,7 +359,7 @@ export default {
 .bottomNav {
   position: absolute;
   bottom: 0px;
-  width: 375px;
+  width: 100%;
   height: 44px;
   background: #ffffff;
   box-shadow: 0px -3px 6px rgba(163, 109, 22, 0.16);

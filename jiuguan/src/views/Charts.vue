@@ -92,7 +92,7 @@ export default {
 }
 
 .quit {
-  position: fixed;
+  position: absolute;
   left: 25px;
   top: 55px;
   width: 28px;
@@ -102,7 +102,7 @@ export default {
 }
 
 .quitIcon {
-  position: fixed;
+  position: absolute;
   left: 20px;
   top: 51px;
 }
@@ -139,7 +139,7 @@ export default {
 .Top3,
 .Top4,
 .Top5 {
-  position: fixed;
+  position: absolute;
   width: 8px;
   height: 20px;
     left: 68px;
@@ -169,7 +169,7 @@ export default {
 }
 
 #ulList {
-  position: fixed;
+  position: absolute;
   display: flex;
   flex-wrap: wrap;
   width: 224px;
@@ -182,7 +182,7 @@ export default {
 }
 
 .top3 {
-  position: fixed;
+  position: absolute;
   top: 102px;
   left: 20px;
   width: 335px;
@@ -193,7 +193,7 @@ export default {
 }
 
 .others {
-  position: fixed;
+  position: absolute;
   bottom: 58px;
   left: 20px;
   width: 335px;
@@ -203,7 +203,7 @@ export default {
 }
 
 .bot {
-  position: fixed;
+  position: absolute;
   bottom: 0px;
   height: 58px;
   width: 375px;
