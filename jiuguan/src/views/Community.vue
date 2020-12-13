@@ -34,11 +34,8 @@
       </v-carousel>
     </div>
     <div class="container">
-
       <div>
-        <div class="text">
-          留言
-        </div>
+        <div class="text">留言</div>
       </div>
       <v-card
         style="margin: 15px 3px; background-color: #fff2d8"
@@ -71,13 +68,7 @@
               }}</span>
             </v-btn>
             <a href="/reply" @click="getReply(item.ID)">
-              <v-btn
-                text
-                height="30px"
-                width="80px"
-                elevation="0"
-               
-              >
+              <v-btn text height="30px" width="80px" elevation="0">
                 <v-icon color="grey">mdi-message-processing-outline</v-icon>
                 <span class="num" v-show="item.ReplyNum" style="color: grey">{{
                   item.ReplyNum
@@ -111,11 +102,11 @@ export default {
     return {
       contents: [],
       pageNum: 1,
-      searchv:"",
-      items:[
-        {src:require("../images/society1.png")},
-        {src:require("../images/society .png")},
-        {src:require("../images/society2.png")},
+      searchv: "",
+      items: [
+        { src: require("../images/society1.png") },
+        { src: require("../images/society .png") },
+        { src: require("../images/society2.png") },
       ],
     };
   },
@@ -139,15 +130,17 @@ export default {
         });
     },
     like(ID, index) {
-      this.$axios.post("/zan?ToId=" + ID + "&FromId=" + 10).then((response) => {
-        console.log(response.data);
-        if (response.data.msg == "赞成功") {
-          //点赞后点赞数+1，无需重新请求
-          this.contents[index].LikeNum++;
-        }else {
-        alert(response.data.msg);
-        }
-      });
+      this.$axios
+        .post("/zan?ToId=" + ID + "&FromId=" + sessionStorage.getItem("userID"))
+        .then((response) => {
+          console.log(response.data);
+          if (response.data.msg == "赞成功") {
+            //点赞后点赞数+1，无需重新请求
+            this.contents[index].LikeNum++;
+          } else {
+            alert(response.data.msg);
+          }
+        });
     },
     search() {
       this.$axios
@@ -161,7 +154,7 @@ export default {
           }
         })
         .catch((err) => {
-          alert("无相关信息")
+          alert("无相关信息");
           console.log(err);
         });
     },
@@ -212,7 +205,7 @@ export default {
   border-radius: 10px;
   background-color: #fffaf6;
 }
-a{
+a {
   text-decoration: none;
 }
 
@@ -226,14 +219,14 @@ a{
   box-shadow: 0px -3px 6px rgba(163, 109, 22, 0.16);
   opacity: 1;
 }
-.text{
-  width:74px;
-  height:25px;
-  border-radius:10px;
-  background-color:#F8D4CC;
-  color:#D96D6D;
- 
-  text-align:center;
+.text {
+  width: 74px;
+  height: 25px;
+  border-radius: 10px;
+  background-color: #f8d4cc;
+  color: #d96d6d;
+
+  text-align: center;
 }
 
 .navBtn {
