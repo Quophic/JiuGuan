@@ -158,6 +158,11 @@ export default {
             this.contents = [];
             this.pageNum = 1;
             this.contents.push(...response.data.data);
+            if(response.data.noResponse){
+              comsole.log(response.data.noResponse)
+              alert(response.data.noResponse)
+            }
+            
           }
         })
         .catch((err) => {
