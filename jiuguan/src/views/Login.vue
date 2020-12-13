@@ -29,8 +29,8 @@
         id="loginBtn"
         depressed
         large
-        height="28px"
-        width="95px"
+        height="20%"
+        width="20%"
         @click="login"
         >登录</v-btn
       >
@@ -109,15 +109,15 @@ export default {
 
 <style scoped>
 .loginForm {
-  position: fixed;
-  top: 100px;
-  left: 63px;
-  width: 250px;
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 66%;
   height: 150px;
 }
 
 .background {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   height: 100%;
   width: 100%;
@@ -126,8 +126,8 @@ export default {
 }
 
 #loginBtn {
-  position: fixed;
-  left: 135px;
+  position: absolute;
+  left: 30%;
   background-color: #e2806a;
 }
 </style>

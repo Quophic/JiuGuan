@@ -46,4 +46,20 @@ export default {
   color: #D96D6D;
 }
 
+/* 导航栏相关 */
+.bottomNav {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 44px;
+  background: #ffffff;
+  box-shadow: 0px -3px 6px rgba(163, 109, 22, 0.16);
+  opacity: 1;
+}
+
+.navBtn {
+  position: absolute;
+  margin-right: 25px;
+}
+
 </style>

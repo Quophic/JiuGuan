@@ -155,7 +155,7 @@ a {
 .bottomNav {
   position: absolute;
   bottom: 0px;
-  width: 375px;
+  width: 100%;
   height: 44px;
   background: #ffffff;
   box-shadow: 0px -3px 6px rgba(163, 109, 22, 0.16);
