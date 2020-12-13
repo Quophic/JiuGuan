@@ -96,26 +96,6 @@
         <v-icon color="white" size="50px">mdi-plus</v-icon>
       </v-btn>
     </a>
-        <!-- 底端导航栏 -->
-    <div class="bottomNav">
-      <v-bottom-navigation height="44px" v-model="value" class="nav">
-        <a href="/community">
-          <v-btn value="community" class="navBtn">
-            <v-icon large>sticky_note_2</v-icon>
-          </v-btn>
-        </a>
-        <a href="/home">
-          <v-btn value="home" class="navBtn">
-            <v-icon large>home</v-icon>
-          </v-btn>
-        </a>
-        <a href="/user">
-          <v-btn value="nearby" class="navBtn">
-            <v-icon large>person</v-icon>
-          </v-btn>
-        </a>
-      </v-bottom-navigation>
-    </div>
   </div>
 </template>
 
@@ -123,7 +103,6 @@
 export default {
   data() {
     return {
-      value: "community",
       contents: [],
       pageNum: 1,
       search:"",
