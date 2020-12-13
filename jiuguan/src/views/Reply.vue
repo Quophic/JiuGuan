@@ -40,7 +40,7 @@
         <input type="text" v-model="reply" />
       </div>
 
-      <v-btn @click="sendReply" height="20px" color="#F58C8C"></v-btn>
+      <v-btn @click="sendReply" height="20px" color="#F58C8C" class="text">发送</v-btn>
     </div>
   </div>
 </template>
@@ -213,5 +213,8 @@ a {
   line-height: 12px;
   color: #611010;
   opacity: 1;
+}
+.text{
+  color:white
 }
 </style>
