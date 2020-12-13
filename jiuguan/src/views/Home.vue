@@ -233,7 +233,7 @@ export default {
 
 .carveLine {
   position: absolute;
-  top: 357px;
+  top: 55%;
   left: 28px;
   width: 314px;
   height: 0px;
